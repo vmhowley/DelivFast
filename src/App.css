@@ -11,3 +11,11 @@
     @apply w-10 h-10 flex items-center justify-center z-10 relative
      bg-slate-700 rounded-full font-semibold text-white
 }  
+
+.btn {
+    @apply bg-gray-800 hover:bg-gray-700 text-gray-100 font-medium px-7 py-1 rounded-md
+}
+
+.active .step {
+    @apply bg-emerald-400  
+}
