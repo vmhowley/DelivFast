@@ -6,7 +6,7 @@ export default function MakeOrder() {
   return (
     <>
       <div
-        className="flex space-x-2 cursor-pointer text-white mb-6"
+        className="flex space-x-2 cursor-pointer text-white font-bold font-[Poppins] p-2"
         onClick={() => history.back()}
       >
         <ArrowSmallLeftIcon className="h-6 w-6" />
