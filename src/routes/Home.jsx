@@ -14,7 +14,7 @@ export default function Home() {
       <Ccard />
       <Search />
       <Hero />
-      <div className="flex justify-between p-5 text-emerald-400">
+      <div className="flex justify-between p-2 text-emerald-400">
         <span className="text-white font-semibold">Transaction History</span>
         <a href="/transactions">See All</a>
       </div>
