@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    font-family: 'Urbanist', sans-serif;
+}
+body{
+    margin: 0 auto;
+    padding: 0;
+    background-color: #191A20;
+
+}
+
