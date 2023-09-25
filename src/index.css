@@ -19,5 +19,5 @@ body{
 }
 
 .active .step {
-    @apply bg-emerald-400 
+    @apply bg-emerald-400  
 }
