@@ -1,6 +1,5 @@
 import React from 'react'
-import Mnav from '../components/M-NavBar'
-import NavBar from '../components/NavBar'
+
 export default function OrdersList() {
   return (
         <div className="p">
@@ -8,7 +7,6 @@ export default function OrdersList() {
             <img src='' alt="" />
             <h1 className="text-emerald-400 font-semibold p-2 m-2 bg-emerald-400 bg-opacity-30 rounded-md">My Orders</h1>
         </div>
-        <NavBar />
                </div>
     )
 }

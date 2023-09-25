@@ -19,7 +19,6 @@ export default function Home() {
         <a href="/transactions">See All</a>
       </div>
       <TransactionHist />
-      <NavBar />
     </div>
   );
 }
