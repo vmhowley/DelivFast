@@ -1,8 +1,6 @@
 import React from 'react'
-import { PencilSquareIcon} from '@heroicons/react/24/solid'
-import { CurrencyDollarIcon} from '@heroicons/react/24/solid'
-import { MapPinIcon} from '@heroicons/react/24/solid'
-import { QuestionMarkCircleIcon} from '@heroicons/react/24/solid'
+import { PencilSquareIcon, CurrencyDollarIcon, MapPinIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/solid'
+
 
 export default function Hero   () {
 
