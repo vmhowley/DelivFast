@@ -17,8 +17,9 @@ export default function NavBar() {
   ];
 
   return (
-    <div className="fixed  bottom-0 shadow-md bg-opacity-70  backdrop-blur-sm  w-screen   text-emerald-400  font-light ">
-      <ul className="flex justify-around content-center items-center p-2 text-[0.60rem]">
+<div className="fixed  bottom-0  w-full text-emerald-400  font-semibold bg-white bg-opacity-30  backdrop-blur-md text-xs ">
+      <div>
+      <ul className="flex justify-around content-center items-center p-2 ">
         <li className="hover:bg-emerald-400 hover:text-white rounded-md">
           <a className="flex flex-col content-center items-center justify-between " href="/">
             <HomeIcon className="h-6" />
@@ -44,6 +45,7 @@ export default function NavBar() {
           </a>
         </li>
       </ul>
-    </div>
+      </div>
+</div>
   );
 }

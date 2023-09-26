@@ -6,12 +6,7 @@ export default {
     "components/**/*.{vue,js,ts,jsx,tsx}"
   ],
   theme: {
-
-    extend: {
-      fontFamily: {
-        'press-start': ['"Press Start 2P"', 'cursive'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }

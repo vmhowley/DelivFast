@@ -5,7 +5,7 @@ export default function Stepper() {
     const steps = ["Sender", "Receiver", "Package", "Payment", "Finish"];
     const [currentStep, setCurrentStep] = useState(1);
     return (
-      <div className=' divide-y divide-slate-700 text-sm'>
+      <div className=' divide-y divide-slate-700 text-sm mb-10'>
         <div className="flex justify-between p-4">
           {steps?.map((step, i) => (
             <div

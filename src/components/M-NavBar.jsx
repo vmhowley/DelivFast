@@ -5,8 +5,8 @@ import { BellIcon } from '@heroicons/react/24/solid'
 import DarkModeToggle from '../components/DarkMode'
 export default function Mnav() {
   return (
-<div className="p-4 shadow-md bg-opacity-70 justify-between items-center flex fixed top-0 backdrop-blur-sm w-screen z-50">
-    <div className=" justify-start items-center gap-4 flex">
+<div className="p-2 shadow-xl bg-white bg-opacity-30  backdrop-blur-md rounded-b-3xl justify-between items-center flex fixed  top-0   w-full z-50">
+    <div className="justify-start items-center gap-4 flex">
         <img className="w-[49px] h-[49px] rounded-[56px] border border-white border-opacity-30" src="https://unavatar.io/benitoxx25" />
         <div className="flex-col justify-center items-start gap-1 inline-flex">
             <span className=" text-xl font-semibold leading-normal">Benito, Adam!</span>
