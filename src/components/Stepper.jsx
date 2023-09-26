@@ -22,13 +22,13 @@ export default function Stepper() {
           <form className="rounded-lg px-6 pt-2 pb-8 mb-4">
             <div className="mb-4">
               <label
-                className="block text-white text-sm font-bold mb-2"
+                className="block text-black text-sm font-bold mb-2"
                 htmlFor="name"
               >
                 Sender Name
               </label>
               <input
-                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
                 id="name"
                 type="text"
                 placeholder="Jhon Smith"
@@ -36,13 +36,13 @@ export default function Stepper() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-white text-sm font-bold mb-2"
+                className="block text-black text-sm font-bold mb-2"
                 htmlFor="phone"
               >
                 Phone Number
               </label>
               <input
-                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
                 id="phone"
                 type="number"
                 placeholder="809 402 XXXX"
@@ -50,13 +50,13 @@ export default function Stepper() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-white text-sm font-bold mb-2"
+                className="block text-black text-sm font-bold mb-2"
                 htmlFor="email"
               >
                 Email
               </label>
               <input
-                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
                 id="email"
                 type="text"
                 placeholder="JhonSmith@delifast.com"
@@ -64,13 +64,13 @@ export default function Stepper() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-white text-sm font-bold mb-2"
+                className="block text-black text-sm font-bold mb-2"
                 htmlFor="city"
               >
                 City / Province
               </label>
               <input
-                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
                 id="username"
                 type="text"
                 placeholder="Santo Domingo, Rep.Dom"
@@ -78,13 +78,13 @@ export default function Stepper() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-white text-sm font-bold mb-2"
+                className="block text-black text-sm font-bold mb-2"
                 htmlFor="address"
               >
                 Address Details
               </label>
               <input
-                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
                 id="address"
                 type="text"
                 placeholder="C/ Francisco prats Ramirez..."

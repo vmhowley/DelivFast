@@ -4,7 +4,7 @@ export default function TransactionHist() {
   return (
     <>
       
-      <div className="text-white  divide-y divide-slate-400/30 m-2 w-max md:w-auto md:grid ">
+      <div className="text-black  divide-y divide-slate-400/30 m-2 w-max md:w-auto md:grid ">
         <div className="flex flex-row justify-between  mb-2 items-center ">
           <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
             <PencilIcon className="h-6 w-6 text-emerald-400" />

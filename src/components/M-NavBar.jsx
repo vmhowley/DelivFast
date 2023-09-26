@@ -2,10 +2,10 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import { BellIcon } from '@heroicons/react/24/solid'
-
+import DarkModeToggle from '../components/DarkMode'
 export default function Mnav() {
   return (
-<div className="p-4 bg-zinc-900 bg-opacity-90 justify-between items-center flex fixed top-0  text-white  w-screen z-50">
+<div className="p-4 shadow-md bg-opacity-70 bg-white justify-between items-center flex fixed top-0 backdrop-blur-sm text-slate-700  w-screen z-50">
     <div className=" justify-start items-center gap-4 flex">
         <img className="w-[49px] h-[49px] rounded-[56px] border border-white border-opacity-30" src="https://unavatar.io/benitoxx25" />
         <div className="flex-col justify-center items-start gap-1 inline-flex">

@@ -6,16 +6,7 @@
 body{
     margin: 0 auto;
     padding: 0;
-    background-color: #191A20;
-    font-family: 'Urbanist', sans-serif;
-    
-
+    background-color: #f3f4f6;
+    font-family: 'Poppins', sans-serif;
 }
 
-.btn {
-    @apply bg-gray-800 hover:bg-gray-700 text-gray-100 font-medium px-7 py-1 rounded-md
-}
-
-.active .step {
-    @apply bg-emerald-400  
-}
