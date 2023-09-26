@@ -7,7 +7,7 @@ export default function Ccard() {
         <div className="w-full px-8 absolute top-8">
           <div className="flex justify-between">
             <div className="">
-              <p className="font-semibold text-lg">BENITO ADAM</p>
+              <span className="font-semibold text-lg">BENITO ADAM</span>
               <p className="text-3xl">•••• •••• •••• 7632
             </p>
             </div>

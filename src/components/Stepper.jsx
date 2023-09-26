@@ -5,7 +5,7 @@ export default function Stepper() {
     const steps = ["Sender", "Receiver", "Package", "Payment", "Finish"];
     const [currentStep, setCurrentStep] = useState(1);
     return (
-      <div className=' divide-y divide-slate-700'>
+      <div className=' divide-y divide-slate-700 text-sm'>
         <div className="flex justify-between p-4">
           {steps?.map((step, i) => (
             <div
@@ -13,7 +13,7 @@ export default function Stepper() {
               className={`step-item ${currentStep === i + 1 && "active"}`}
             >
               <div className="step">{i + 1}</div>
-              <p className="text-gray-600 ">{step}</p>
+              <p className="text-gray-400 ">{step}</p>
             </div>
           ))}
         </div>
@@ -22,13 +22,13 @@ export default function Stepper() {
           <form className="rounded-lg px-6 pt-2 pb-8 mb-4">
             <div className="mb-4">
               <label
-                className="block text-black text-sm font-bold mb-2"
+                className="block font-bold mb-2"
                 htmlFor="name"
               >
                 Sender Name
               </label>
               <input
-                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+                className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
                 id="name"
                 type="text"
                 placeholder="Jhon Smith"
@@ -36,13 +36,13 @@ export default function Stepper() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-black text-sm font-bold mb-2"
+                className="block      font-bold mb-2"
                 htmlFor="phone"
               >
                 Phone Number
               </label>
               <input
-                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+                className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
                 id="phone"
                 type="number"
                 placeholder="809 402 XXXX"
@@ -50,13 +50,13 @@ export default function Stepper() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-black text-sm font-bold mb-2"
+                className="block      font-bold mb-2"
                 htmlFor="email"
               >
                 Email
               </label>
               <input
-                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+                className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
                 id="email"
                 type="text"
                 placeholder="JhonSmith@delifast.com"
@@ -64,13 +64,13 @@ export default function Stepper() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-black text-sm font-bold mb-2"
+                className="block      font-bold mb-2"
                 htmlFor="city"
               >
                 City / Province
               </label>
               <input
-                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+                className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
                 id="username"
                 type="text"
                 placeholder="Santo Domingo, Rep.Dom"
@@ -78,13 +78,13 @@ export default function Stepper() {
             </div>
             <div className="mb-4">
               <label
-                className="block text-black text-sm font-bold mb-2"
+                className="block      font-bold mb-2"
                 htmlFor="address"
               >
                 Address Details
               </label>
               <input
-                className="shadow appearance-none  rounded-lg w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+                className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
                 id="address"
                 type="text"
                 placeholder="C/ Francisco prats Ramirez..."

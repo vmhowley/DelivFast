@@ -5,13 +5,13 @@ import Stepper from '../components/Stepper';
 export default function MakeOrder() {
   return (
     <>
-      <div
+      <span
         className="flex space-x-2 cursor-pointer font-bold p-2 pt-8"
         onClick={() => history.back()}
       >
         <ArrowSmallLeftIcon className="h-6 w-6" />
         <span className='font-bold '>Make Order</span>
-      </div>
+      </span>
       <Stepper />
     </>
   );
