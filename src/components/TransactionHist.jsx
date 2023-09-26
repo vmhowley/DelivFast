@@ -1,5 +1,6 @@
 import React from "react";
-import {BankNotesIcon, PencilSquareIcon} from "@heroicons/react/24/solid"
+import BankNotesIcon from "@heroicons/react/24/solid/BanknotesIcon"
+import { PencilSquareIcon } from '@heroicons/react/24/solid'
 
 
 export default function TransactionHist() {

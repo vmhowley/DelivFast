@@ -7,7 +7,7 @@ export default function Ccard() {
         <div className="w-full px-8 absolute top-8">
           <div className="flex justify-between">
             <div className="">
-              <span className="font-semibold text-lg">BENITO ADAM</span>
+              <span className="font-semibold text-lg text-white">BENITO ADAM</span>
               <p className="text-3xl">•••• •••• •••• 7632
             </p>
             </div>
@@ -15,7 +15,7 @@ export default function Ccard() {
           <div className="pt-6 pr-6 flex justify-between items-center ">
             <div>
               <p className="font-normal text-xs">Your Balance</p>
-              <span className="font-bold text-xl">$9,500</span>           
+              <span className="font-bold text-xl text-white">$9,500</span>           
             </div>
             <img className="w-16 h-6" src={VisaLogo} />
 
