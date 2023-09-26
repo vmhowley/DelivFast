@@ -7,7 +7,11 @@ export default function TransactionHist() {
   return (
     <>
       
-      <div className="text-black  divide-y divide-slate-400/30 m-2  ">
+      <div className="text-black  divide-y divide-slate-400/30 grid w-max m-auto">
+      <div className="flex justify-between p-2 text-emerald-400">
+        <span className="font-semibold">Transaction History</span>
+        <a href="/transactions">See All</a>
+      </div>
         <div className="flex flex-row justify-between  mb-2 items-center content-center">
           <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
             <PencilSquareIcon className="h-6 w-6 text-emerald-400" />
