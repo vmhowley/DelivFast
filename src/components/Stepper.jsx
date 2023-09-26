@@ -5,15 +5,15 @@ export default function Stepper() {
     const steps = ["Sender", "Receiver", "Package", "Payment", "Finish"];
     const [currentStep, setCurrentStep] = useState(1);
     return (
-      <div className=' divide-y divide-slate-700 text-sm mb-10'>
-        <div className="flex justify-between p-4">
+      <div className=' divide-y divide-slate-200  text-sm mb-10'>
+        <div className="flex justify-between">
           {steps?.map((step, i) => (
             <div
               key={i}
-              className={`step-item ${currentStep === i + 1 && "active"}`}
+              className={`step-item w-screen  ${currentStep === i + 1 && "active"}`}
             >
               <div className="step">{i + 1}</div>
-              <p className="text-gray-400 ">{step}</p>
+              <p className="text-slate-500 text-xs ">{step}</p>
             </div>
           ))}
         </div>
