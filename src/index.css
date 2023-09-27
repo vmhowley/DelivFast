@@ -4,17 +4,14 @@
 
 
 body{
-    margin: 0 auto;
+    margin: 0 ;
     padding: 0;
     background-color: #ffffff;
     font-family: 'Poppins', sans-serif;
-    color: rgb(0, 0, 0);
     
 }
 /* Color de letras */
 
-span {
-    color: rgb(0, 0, 0);
-}
+
 
 /* Fin Color de letras */

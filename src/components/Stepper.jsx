@@ -12,7 +12,7 @@ export default function Stepper() {
               key={i}
               className={`step-item w-screen  ${currentStep === i + 1 && "active"}`}
             >
-              <div className="step">{i + 1}</div>
+              <div className="step dark:bg-slate-600">{i + 1}</div>
               <p className="text-slate-500 text-xs ">{step}</p>
             </div>
           ))}
