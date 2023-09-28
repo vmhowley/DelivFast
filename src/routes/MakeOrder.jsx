@@ -1,7 +1,7 @@
 import React from 'react'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 import Stepper from '../components/Stepper';
-import OrderForm from '../components/OrderForm';
+import Sender from '../components/Sender';
 export default function MakeOrder() {
   return (
     <>
@@ -13,7 +13,6 @@ export default function MakeOrder() {
         <span className='font-bold '>Back</span>
       </div>
       <Stepper />
-      <OrderForm />
-    </>
+          </>
   );
 }

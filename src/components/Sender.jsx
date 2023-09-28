@@ -38,7 +38,7 @@ export default   function MyForm(props) {
         
         
         <div className="flex items-center justify-center">
-          <button onClick={setInputs}
+          <button onSubmit={setInputs}
             disabled={props.currentStep === 0 ? true : false}
             className="bg-emerald-400 hover:bg-emerald-300 text-white font-bold py-4 px-4 rounded-full focus:outline-none focus:shadow-outline w-full"
             type="submit"

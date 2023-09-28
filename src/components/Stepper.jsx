@@ -2,13 +2,23 @@ import React from 'react'
 import { useState } from 'react';
 import Sender from './Sender';
 
-
-
-export default function Stepper(step, setCurrStep) {
+export default function Stepper() {
     const steps = ["Sender", "Receiver", "Package", "Payment", "Finish"];
     const [currentStep, setCurrentStep] = useState(1);
+    const [inputs, setInputs] = useState({});
+  
+    const handleChange = (event) => {
+      const name = event.target.name;
+      const value = event.target.value;
+      setInputs(values => ({...values, [name]: value}))
+    }
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      console.log(inputs);
+      
+    }
 
-    {currentStep === 1 && <Sender setCurrentStep={setCurrentStep} />}
     return (
 
       <div className=' divide-y divide-slate-200  text-sm mb-10'>
@@ -23,7 +33,37 @@ export default function Stepper(step, setCurrStep) {
             </div>
           ))}
         </div>       
+        <div className='flex justify-center mt-2' >
+    <div className="w-full max-w-md">
+      <form onSubmit={handleSubmit}  className="rounded-lg px-6 pt-2 pb-8 mb-4">
+        <div className="mb-4">
+          <label
+            className="block font-bold mb-2"
+            htmlFor="name"
+          >
+            Sender Name
+          </label>
+          <input
+            className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+            id="name"
+            name='name'
+            type="text"
+            placeholder="Jhon Smith"
+          />
+        </div>
+        
+        <div className="flex items-center justify-center">
+          <button onClick={() => setCurrentStep(currentStep + 1)}
+            className="bg-emerald-400 hover:bg-emerald-300 text-white font-bold py-4 px-4 rounded-full focus:outline-none focus:shadow-outline w-full"
+            type="submit"
+            >
+            Continue
+          </button>
 
+        </div>
+      </form>
+    </div>
+    </div>
         
       </div>
     );
