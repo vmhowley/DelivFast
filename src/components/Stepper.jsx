@@ -1,9 +1,34 @@
 import React from 'react'
 import { useState } from 'react';
+import { getDatabase, ref, set } from "firebase/database";
 
 export default function Stepper() {
     const steps = ["Sender", "Receiver", "Package", "Payment", "Finish"];
     const [currentStep, setCurrentStep] = useState(1);
+    
+  const [ packageDetail, setPackageDetail]  = useState({
+    "user_id": "",
+    "package_id": "",
+    "sender_id": "",
+    "package_total": "",
+    "delivery_status": "",
+    "delivery_date": "",
+    "delivery_time": "",
+    "delivery_address": "",
+  })
+
+  
+  function writeOrderData(userId, sender_id, package_id, package_total, delivery_status  )  {
+      const db = getDatabase();
+      set(ref(db, 'orders/' + userId), {
+        name: name,
+        email: email,
+        imageUrl: imegeUrl,
+        timestamp: Date.now()
+      
+    }
+      );
+  }
     return (
       <div className=' divide-y divide-slate-200  text-sm mb-10'>
         <div className="flex justify-between">
