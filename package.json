@@ -19,9 +19,13 @@
     "firebase": "^10.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-form-stepper": "^2.0.3",
+    "react-icons": "^4.11.0",
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.16.0",
-    "react-toggle": "^4.1.3"
+    "react-step-wizard": "^5.3.11",
+    "react-toggle": "^4.1.3",
+    "reactstrap": "^9.2.0"
   },
   "devDependencies": {
     "@capacitor/assets": "^3.0.0",

@@ -49,7 +49,6 @@ export default function TransactionHist() {
     
        ]
   ;
-  const icon = "<BankNotesIcon />"
   
   return (
     <>

@@ -1,12 +1,12 @@
 import React from 'react'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 import Stepper from '../components/Stepper';
-import OrderForm from '../components/OrderForm';
+import Sender from '../components/Sender';
 export default function MakeOrder() {
   return (
     <>
       <div
-        className="flex space-x-2 cursor-pointer font-bold relative z-50 w-max h-10 m-2"
+        className="flex space-x-2 cursor-pointer font-bold relative  m-2"
         onClick={() => history.back()}
       >
         <ArrowSmallLeftIcon className="h-6 w-6" />
