@@ -2,7 +2,6 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import { BellIcon } from '@heroicons/react/24/solid'
-import DarkModeToggle from '../components/DarkMode'
 export default function Mnav() {
   return (
 <div className="p-2 shadow-xl bg-white dark:bg-gray-300 dark:bg-opacity-30 bg-opacity-30  backdrop-blur-md rounded-b-3xl justify-between items-center flex fixed  top-0   w-full z-50 ">

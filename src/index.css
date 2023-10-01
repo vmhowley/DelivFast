@@ -6,12 +6,15 @@
 body{
     margin: 0 ;
     padding: 0;
-    background-color: #ffffff;
+    background-color: #ffffff !important;
     font-family: 'Poppins', sans-serif;
+    color: #222 !important;
     
 }
 /* Color de letras */
 
-
+span {
+    color: black;
+}
 
 /* Fin Color de letras */

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-function SenderInfo( {formData, setFormData}) {
+function PackageInfo( {formData, setFormData}) {
     return(
     <div className='flex justify-center' >
     <div className="w-full max-w-md">
@@ -11,33 +11,32 @@ function SenderInfo( {formData, setFormData}) {
             className="block font-bold mb-2"
             htmlFor="name"
           >
-            Sender Name
+            Package Category
           </label>
-          <input
-            className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
-            id="name"
-            name='name'
-            type="text"
-            placeholder="Jhon Smith"
-            value={formData.name}
-            onChange={(e) => setFormData({...formData, name: e.target.value})}
-          />
+          <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option selected>Category</option>
+  <option value="ELE">Electronic</option>
+  <option value="CA">Canada</option>
+  <option value="FR">France</option>
+  <option value="DE">Germany</option>
+</select>
         </div>
         <div className="mb-4">
           <label
             className="block font-bold mb-2"
-            htmlFor="name"
+            htmlFor="weight"
           >
-            Phone Number
+            Weight
           </label>
           <input
-            className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+            className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700 placeholder:flex placeholder:justify-between"
             id="phone"
             name='phone'
-            type="tel"
-            placeholder="+1"
+            type="number"
+            placeholder='kg'
             value={formData.phone}
             onChange={(e) => setFormData({...formData, phone: e.target.value})}
+          
           />
         </div>
         <div className="mb-4">
@@ -51,7 +50,7 @@ function SenderInfo( {formData, setFormData}) {
             className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
             id="email"
             name='email'
-            type="text"
+            type="email"
             placeholder="Email"
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -99,4 +98,4 @@ function SenderInfo( {formData, setFormData}) {
     )
 }
 
-export default SenderInfo;
+export default PackageInfo;
