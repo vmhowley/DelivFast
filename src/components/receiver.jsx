@@ -1,94 +1,94 @@
 import React from 'react'
 import { useState } from 'react';
 
-function ReceiverInfo( {formData, setFormData}) {
+function  ReceiverInfo( {formData, setFormData}) {
     return(
     <div className='flex justify-center' >
     <div className="w-full max-w-md">
       <form  className="rounded-lg">
         <div className="mb-4">
           <label
-            className="block font-bold mb-2"
+            className="block   mb-2"
             htmlFor="name"
           >
-            Receiver Name
+            Sender Name
           </label>
           <input
-            className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="name"
             name='name'
             type="text"
             placeholder="Jhon Smith"
-            value={formData.receivername}
-            onChange={(e) => setFormData({...formData, receivername: e.target.value})}
+            value={formData.receiver_name}
+            onChange={(e) => setFormData({...formData, receiver_name: e.target.value})}
           />
         </div>
         <div className="mb-4">
           <label
-            className="block font-bold mb-2"
+            className="block   mb-2"
             htmlFor="name"
           >
             Phone Number
           </label>
           <input
-            className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="phone"
             name='phone'
             type="tel"
             placeholder="+1"
-            value={formData.receiverphone}
-            onChange={(e) => setFormData({...formData, receiverphone: e.target.value})}
+            value={formData.receiver_phone}
+            onChange={(e) => setFormData({...formData, receiver_phone: e.target.value})}
           />
         </div>
         <div className="mb-4">
           <label
-            className="block font-bold mb-2"
+            className="block   mb-2"
             htmlFor="email"
           >
             Email
           </label>
           <input
-            className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="email"
             name='email'
             type="text"
             placeholder="Email"
-            value={formData.receiveremail}
-            onChange={(e) => setFormData({...formData, receiveremail: e.target.value})}
+            value={formData.receiver_email}
+            onChange={(e) => setFormData({...formData, receiver_email: e.target.value})}
           />
         </div>
         <div className="mb-4">
           <label
-            className="block font-bold mb-2"
+            className="block   mb-2"
             htmlFor="city"
           >
             city
           </label>
           <input
-            className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="city"
             name='city'
             type="text"
             placeholder="City"
-            value={formData.receivercity}
-            onChange={(e) => setFormData({...formData, receivercity: e.target.value})}
+            value={formData.receiver_city}
+            onChange={(e) => setFormData({...formData, receiver_city: e.target.value})}
           />
         </div>
         <div className="mb-4">
           <label
-            className="block font-bold mb-2"
+            className="block   mb-2"
             htmlFor="address"
           >
             Address Detail
           </label>
           <input
-            className="shadow appearance-none  rounded-lg w-full py-4 px-3    leading-tight focus:outline-none focus:shadow-outline bg-opacity-70 bg-gray-700"
+            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="address"
             name='address'
             type="text"
             placeholder="Address"
-            value={formData.receiveraddress}
-            onChange={(e) => setFormData({...formData, receiveraddress: e.target.value})}
+            value={formData.receiver_address}
+            onChange={(e) => setFormData({...formData, receiver_address: e.target.value})}
           />
         </div>
        
@@ -99,4 +99,4 @@ function ReceiverInfo( {formData, setFormData}) {
     )
 }
 
-export default ReceiverInfo;
+export default  ReceiverInfo;

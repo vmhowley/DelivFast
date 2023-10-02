@@ -8,7 +8,7 @@ export default function Search() {
   <input 
   type="text" 
   placeholder='Enter a Track ID Number' 
-  className="w-96 h-14 bg-slate-300 bg-opacity-30 rounded-xl placeholder:text-zinc-500 placeholder:dark:text-zinc-300 pl-14 " 
+  className="w-96 h-14  rounded-xl  pl-14 " 
   />
 </form>
   )

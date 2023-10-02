@@ -8,22 +8,22 @@ import { useNavigate } from "react-router-dom";
 function  MultiStepForm () {
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    city: "",
+    sender_name: "",
+    sender_email: "",
+    sender_phone: "",
+    sender_address: "",
+    sender_city: "",
     receiver_name: "",
     receiver_email: "",
     receiver_phone: "",
     receiver_address: "",
     receiver_city: "",
     package_category: "",
-    weight: "",
-    height: "",
-    width: "",
-    length: "",
-    price: "",
+    package_weight: "",
+    package_height: "",
+    package_width: "",
+    package_dimension: "",
+    package_price: "",
     payment: "",
     delivery: "",
     status: "",
@@ -58,7 +58,7 @@ function  MultiStepForm () {
     <> 
     <Stepper
     styleConfig={{ completedBgColor: '#00BFA5', activeBgColor: '#00BFA5', inactiveBgColor: 'gray',}} steps={[{label: 'Sender'}, {label: 'Receiver'}, {label: 'Package'}, {label: 'Payment'}, {label: 'Finish'}]} activeStep={currentStep}   />
-      <div className="p-4 rounded-lg shadow-md  mb-16">
+      <div className="p-4 mb-16">
        
         {step === 1 ? <Sender formData={formData} setFormData={setFormData}   /> : step === 2 ? <Receiver formData={formData} setFormData={setFormData} /> : step === 3 ? < PackageInfo formData={formData} setFormData={setFormData}/> : null }
         

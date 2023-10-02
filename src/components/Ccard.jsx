@@ -3,7 +3,7 @@ import VisaLogo from "../images/visa.png";
 export default function Ccard() {
   return (
     <div className="relative m-auto   mb-2 rounded-3xl">
-      <div className="w-96 h-48 m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-2xl transition-transform transform hover:scale-110">
+      <div className="w-96 h-48 m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white transition-transform transform hover:scale-110">
         <div className="w-full px-8 absolute top-8">
           <div className="flex justify-between">
             <div className="">
