@@ -3,9 +3,9 @@ import { useState } from 'react';
 
 function SenderInfo( {formData, setFormData}) {
     return(
-    <div className='flex justify-center' >
-    <div className="w-full max-w-md">
-      <form  className="rounded-lg">
+    <div className='flex p-4 justify-between content-center items-center' >
+    <div className="w-screen">
+      <form  className="rounded-lg ">
         <div className="mb-4">
           <label
             className="block   mb-2"
@@ -14,7 +14,7 @@ function SenderInfo( {formData, setFormData}) {
             Sender Name
           </label>
           <input
-            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="name"
             name='name'
             type="text"
@@ -31,7 +31,7 @@ function SenderInfo( {formData, setFormData}) {
             Phone Number
           </label>
           <input
-            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="phone"
             name='phone'
             type="tel"
@@ -48,7 +48,7 @@ function SenderInfo( {formData, setFormData}) {
             Email
           </label>
           <input
-            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="email"
             name='email'
             type="text"
@@ -65,7 +65,7 @@ function SenderInfo( {formData, setFormData}) {
             city
           </label>
           <input
-            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="city"
             name='city'
             type="text"
@@ -82,7 +82,7 @@ function SenderInfo( {formData, setFormData}) {
             Address Detail
           </label>
           <input
-            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="address"
             name='address'
             type="text"

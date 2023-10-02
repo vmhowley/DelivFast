@@ -52,10 +52,10 @@ export default function TransactionHist() {
   
   return (
     <>
-      <div className="text-black dark:text-white  divide-y divide-slate-400/30 grid w-max m-auto">
-        <div className="flex justify-between p-2 text-emerald-400">
-          <span className="font-semibold">Transaction History</span>
-          <a href="/transactions">See All </a>
+      <div className="text-black dark:text-white  divide-y divide-slate-400/30 grid w-max m-auto mt-4">
+        <div className="flex justify-between w-96 items-center mb-4 text-emerald-400 ">
+          <span className="font-bold text-xl">Transaction History</span>
+          <a className="font-bold" href="/transactions">See All </a>
         </div>
         {transactions.map((transaction) => (
           <div
@@ -66,7 +66,7 @@ export default function TransactionHist() {
               <BankNotesIcon  className="h-6 w-6 text-emerald-400" />
             </div>
             <div className="grid  gap-2 p-2">
-              <span className="font-semibold">{transaction.title}</span>
+              <span className="">{transaction.title}</span>
               <p className="text-xs text-zinc-500 dark:text-zinc-300 relative w-52">
                 {transaction.description}
               </p>

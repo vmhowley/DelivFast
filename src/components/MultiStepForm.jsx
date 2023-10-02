@@ -62,7 +62,7 @@ function  MultiStepForm () {
        
         {step === 1 ? <Sender formData={formData} setFormData={setFormData}   /> : step === 2 ? <Receiver formData={formData} setFormData={setFormData} /> : step === 3 ? < PackageInfo formData={formData} setFormData={setFormData}/> : null }
         
-        <div className="flex justify-around ">
+        <div className="flex justify-around content-center items-center">
           {step > 1 && (
             <button
             className="btn"

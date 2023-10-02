@@ -6,30 +6,30 @@ export default function Hero   () {
 
 
   return (
- <div className='grid grid-cols-2 m-auto w-max gap-3 font-semibold'>
-      <a href='/create-order' className='card bg-slate-300 h-[126px] w-[183px] grid justify-items-center items-center rounded-2xl bg-opacity-30'>
+ <div className='flex flex-wrap m-auto gap-4 w-96 '>
+      <a href='/create-order' className='transition-transform transform hover:scale-110 bg-slate-300 h-[126px] w-[183px] grid justify-items-center content-center items-center rounded-2xl bg-opacity-30'>
         <div className='p-2 bg-emerald-400 bg-opacity-30 rounded-full'>
         <PencilSquareIcon className=' text-emerald-400 w-[28px]' />
         </div>
           <span className=''>Make Order</span>
       </a>
 
-      <a href='/checkrates' className='card bg-slate-300 h-[126px] w-[183px] grid justify-items-center items-center rounded-2xl bg-opacity-30'>
+      <a href='/checkrates' className='card transition-transform transform hover:scale-110 bg-slate-300 h-[126px] w-[183px] grid justify-items-center items-center rounded-2xl bg-opacity-30 content-center'>
         <div className='p-2 bg-emerald-400 bg-opacity-30 rounded-full'>
         <CurrencyDollarIcon className='relative text-emerald-400 rounded-full w-[28px]' />
         </div>
           <span className=''>Check Rates</span>
       </a>
 
-      <a href='/nearbydrops' className='card bg-slate-300 h-[126px] w-[183px] grid justify-items-center items-center rounded-2xl bg-opacity-30'>
+      <a href='/nearbydrops' className='card transition-transform transform hover:scale-110 bg-slate-300 h-[126px] w-[183px] grid justify-items-center items-center rounded-2xl bg-opacity-30 content-center'>
         <div className='p-2 bg-emerald-400 bg-opacity-30 rounded-full'>
         <MapPinIcon className='relative text-emerald-400 rounded-full w-[28px]' />
         </div>
           <span className=''>Nearby Drops</span>
       </a>
-      <a href='/help' className='card bg-slate-300 h-[126px] w-[183px] grid justify-items-center items-center rounded-2xl bg-opacity-30'>
+      <a href='/help' className='card transition-transform transform hover:scale-110 bg-slate-300 h-[126px] w-[183px] grid justify-items-center items-center rounded-2xl bg-opacity-30 content-center'>
         <div className='p-2 bg-emerald-400 bg-opacity-30 rounded-full'>
-        <QuestionMarkCircleIcon className='relative text-emerald-400 rounded-full w-[28px]' />
+        <QuestionMarkCircleIcon className='relative text-emerald-400 rounded-full w-[28px] ' />
         </div>
           <span className=''>Help Center</span>
       </a>
