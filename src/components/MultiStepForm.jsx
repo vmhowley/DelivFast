@@ -35,11 +35,20 @@ function  MultiStepForm () {
   const [currentStep, setCurrentStep] = useState(0);
  
   const handleNext = () => {
+    
+  if (formData.sender_name.length === 0) {
+    alert('Please enter a sender name first before submitting your form.');
+  }else if (formData.sender_phone.length === 0) {
+    alert('Please enter a valid Phone Number before submitting your form.');
+  }else{
     setStep(step + 1);
     setCurrentStep(currentStep+ 1);
+  }
     
     
   };
+
+  
   
   const handleComplete = () => {
     console.log(formData);
@@ -53,13 +62,12 @@ function  MultiStepForm () {
 
   };
 
-
   return (
     <> 
     <Stepper
     styleConfig={{ completedBgColor: '#00BFA5', activeBgColor: '#00BFA5', inactiveBgColor: 'gray',}} steps={[{label: 'Sender'}, {label: 'Receiver'}, {label: 'Package'}, {label: 'Payment'}, {label: 'Finish'}]} activeStep={currentStep}   />
-      <div className="p-4 mb-16">
-       
+      <div className="p-4 mb-16 font-semibold">
+        
         {step === 1 ? <Sender formData={formData} setFormData={setFormData}   /> : step === 2 ? <Receiver formData={formData} setFormData={setFormData} /> : step === 3 ? < PackageInfo formData={formData} setFormData={setFormData}/> : null }
         
         <div className="flex justify-around content-center items-center">

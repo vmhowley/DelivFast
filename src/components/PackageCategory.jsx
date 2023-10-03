@@ -12,7 +12,7 @@ function PackageInfo( {formData, setFormData}) {
               </label>
               <select
                 id="category"
-                className=" rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className=" rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 value={formData.package_category}
                 onChange={(e) =>
                   setFormData({ ...formData, package_category: e.target.value })
@@ -31,7 +31,7 @@ function PackageInfo( {formData, setFormData}) {
               </label>
               <input id="Weight"
                 placeholder='Kilograms' type='number'
-                className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 value={formData.package_weight}
                 onChange={(e) =>
                   setFormData({ ...formData, package_weight: e.target.value })
@@ -44,7 +44,7 @@ function PackageInfo( {formData, setFormData}) {
               <div className=' flex items-center content-center'>
 
               <input
-                className="rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 id="Length"
                 name="Length"
                 placeholder="Length"
@@ -53,10 +53,10 @@ function PackageInfo( {formData, setFormData}) {
                   setFormData({ ...formData, length: e.target.value })
                 }
                 />
-                                <span className='focus:ring-blue-500 focus:border-blue-500 p-3.5 dark:bg-gray-600 dark:border-gray-600 rounded-r-lg dark:placeholder-gray-400 dark:text-zinc-300 font-bold text-xs dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-1'>Cm</span>
+                                <span className='focus:ring-blue-500 focus:border-blue-500 p-3.5 dark:bg-gray-500 bg-gray-200 dark:border-gray-600 rounded-r-lg dark:placeholder-gray-400 dark:text-zinc-300 font-bold text-xs dark:focus:ring-blue-500 dark:focus:border-blue-500'>Cm</span>
 
               <input
-                className="rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="rounded-l-lg ml-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 id="width"
                 name="Width"
                 placeholder="Width"
@@ -65,9 +65,9 @@ function PackageInfo( {formData, setFormData}) {
                   setFormData({ ...formData, width: e.target.value })
                 }
                 />
-                                <span className='focus:ring-blue-500 focus:border-blue-500 p-3.5 dark:bg-gray-600 dark:border-gray-600 rounded-r-lg dark:placeholder-gray-400 dark:text-zinc-300 font-bold text-xs dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-1'>Cm</span>
+                                <span className='focus:ring-blue-500 focus:border-blue-500 p-3.5 dark:bg-gray-500 bg-gray-200 dark:border-gray-600 rounded-r-lg dark:placeholder-gray-400 dark:text-zinc-300 font-bold text-xs dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-1'>Cm</span>
               <input
-                className="rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 id="dimensions"
                 name="dimensions"
                 placeholder="Height"
@@ -76,17 +76,17 @@ function PackageInfo( {formData, setFormData}) {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 />
-                                <span className='focus:ring-blue-500 focus:border-blue-500 p-3.5 dark:bg-gray-600 dark:border-gray-600 rounded-r-lg dark:placeholder-gray-400 dark:text-zinc-300 font-bold text-xs dark:focus:ring-blue-500 dark:focus:border-blue-500'>Cm</span>
+                                <span className='focus:ring-blue-500 focus:border-blue-500 p-3.5 dark:bg-gray-500 bg-gray-200 dark:border-gray-600 rounded-r-lg dark:placeholder-gray-400 dark:text-zinc-300 font-bold text-xs dark:focus:ring-blue-500 dark:focus:border-blue-500'>Cm</span>
 
 
                 </div>
             </div>
             <div className="mb-4">
               <label className="block   mb-2" htmlFor="city">
-                city
+                City
               </label>
               <input
-                className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 id="city"
                 name="city"
                 type="text"
@@ -102,7 +102,7 @@ function PackageInfo( {formData, setFormData}) {
                 Address Detail
               </label>
               <input
-                className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 id="address"
                 name="address"
                 type="text"

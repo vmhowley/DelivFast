@@ -12,7 +12,7 @@ export default function NavBar() {
   ];
 
   return (
-<div className="fixed  bottom-0  w-full text-emerald-400  font-semibold bg-white bg-opacity-30 dark:bg-gray-300 dark:bg-opacity-30  backdrop-blur-md text-xs ">
+<div className="fixed  bottom-0  w-full text-emerald-400  font-semibold bg-white bg-opacity-30 dark:bg-zinc-900 dark:bg-opacity-30  backdrop-blur-md text-xs ">
       <div>
       <ul className="flex justify-around content-center items-center p-2 ">
         <li className="hover:bg-emerald-400 hover:text-white rounded-md">

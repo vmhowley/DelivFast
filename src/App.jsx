@@ -5,7 +5,7 @@ import OrdersList from './routes/OrdersList'
 import Transactions from './routes/Transactions'
 import MakeOrder from './routes/MakeOrder'
 import NavBar from './components/NavBar'
-
+import NotFound from './routes/NotFound'
 function App() {
 
   return (
@@ -15,7 +15,7 @@ function App() {
       <Route path="/orders" element={<OrdersList />} />
       <Route path="/transactions" element={<Transactions />} />
       <Route path="/create-order" element={<MakeOrder />} />
-      <Route path="*" element={<h1>Error 404</h1>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
     <NavBar />
     </BrowserRouter>
