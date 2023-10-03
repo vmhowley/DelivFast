@@ -7,8 +7,8 @@ export default function Ccard() {
         <div className="w-full px-8 absolute top-8">
           <div className="flex justify-between">
             <div className="grid gap-1">
-              <span className="font-bold">BENITO HOWLEY</span>
-              <p className="text-2xl">•••• •••• •••• 7632
+              <span className="font-bold text-2xl">BENITO HOWLEY</span>
+              <p className="text-3xl">•••• •••• •••• 7632
             </p>
             </div>
           </div>

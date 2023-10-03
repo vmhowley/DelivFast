@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 
 
-function SenderInfo( {formData, setFormData}) {
+function SenderInfo( {orderData, setOrderData}) {
   
 
   
@@ -28,8 +28,8 @@ function SenderInfo( {formData, setFormData}) {
             name='name'
             type="text"
             placeholder="Jhon Smith"
-            value={formData.sender_name}
-            onChange={(e) => setFormData({...formData, sender_name: e.target.value})}
+            value={orderData.sender_name}
+            onChange={(e) => setOrderData({...orderData, sender_name: e.target.value})}
           />
         </div>
         <div className="mb-4">
@@ -45,8 +45,8 @@ function SenderInfo( {formData, setFormData}) {
             name='phone'
             type="tel"
             placeholder="+1"
-            value={formData.sender_phone}
-            onChange={(e) => setFormData({...formData, sender_phone: e.target.value})}
+            value={orderData.sender_phone}
+            onChange={(e) => setOrderData({...orderData, sender_phone: e.target.value})}
           />
         </div>
         <div className="mb-4">
@@ -62,8 +62,8 @@ function SenderInfo( {formData, setFormData}) {
             name='email'
             type="text"
             placeholder="Email"
-            value={formData.sender_email}
-            onChange={(e) => setFormData({...formData, sender_email: e.target.value})}
+            value={orderData.sender_email}
+            onChange={(e) => setOrderData({...orderData, sender_email: e.target.value})}
           />
         </div>
         <div className="mb-4">
@@ -79,8 +79,8 @@ function SenderInfo( {formData, setFormData}) {
             name='city'
             type="text"
             placeholder="City"
-            value={formData.sender_city}
-            onChange={(e) => setFormData({...formData, sender_city: e.target.value})}
+            value={orderData.sender_city}
+            onChange={(e) => setOrderData({...orderData, sender_city: e.target.value})}
           />
         </div>
         <div className="mb-4">
@@ -96,8 +96,8 @@ function SenderInfo( {formData, setFormData}) {
             name='address'
             type="text"
             placeholder="Address"
-            value={formData.sender_address}
-            onChange={(e) => setFormData({...formData, sender_address: e.target.value})}
+            value={orderData.sender_address}
+            onChange={(e) => setOrderData({...orderData, sender_address: e.target.value})}
           />
         </div>
        

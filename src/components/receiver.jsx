@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-function  ReceiverInfo( {formData, setFormData}) {
+function  ReceiverInfo( {orderData, setOrderData}) {
     return(
       <div className='flex p-4 justify-between content-center items-center' >
       <div className="w-screen">
@@ -19,8 +19,8 @@ function  ReceiverInfo( {formData, setFormData}) {
             name='name'
             type="text"
             placeholder="Jhon Smith"
-            value={formData.receiver_name}
-            onChange={(e) => setFormData({...formData, receiver_name: e.target.value})}
+            value={orderData.receiver_name}
+            onChange={(e) => setOrderData({...orderData, receiver_name: e.target.value})}
           />
         </div>
         <div className="mb-4">
@@ -36,8 +36,8 @@ function  ReceiverInfo( {formData, setFormData}) {
             name='phone'
             type="tel"
             placeholder="+1"
-            value={formData.receiver_phone}
-            onChange={(e) => setFormData({...formData, receiver_phone: e.target.value})}
+            value={orderData.receiver_phone}
+            onChange={(e) => setOrderData({...orderData, receiver_phone: e.target.value})}
           />
         </div>
         <div className="mb-4">
@@ -53,8 +53,8 @@ function  ReceiverInfo( {formData, setFormData}) {
             name='email'
             type="text"
             placeholder="Email"
-            value={formData.receiver_email}
-            onChange={(e) => setFormData({...formData, receiver_email: e.target.value})}
+            value={orderData.receiver_email}
+            onChange={(e) => setOrderData({...orderData, receiver_email: e.target.value})}
           />
         </div>
         <div className="mb-4">
@@ -70,8 +70,8 @@ function  ReceiverInfo( {formData, setFormData}) {
             name='city'
             type="text"
             placeholder="City"
-            value={formData.receiver_city}
-            onChange={(e) => setFormData({...formData, receiver_city: e.target.value})}
+            value={orderData.receiver_city}
+            onChange={(e) => setOrderData({...orderData, receiver_city: e.target.value})}
           />
         </div>
         <div className="mb-4">
@@ -87,8 +87,8 @@ function  ReceiverInfo( {formData, setFormData}) {
             name='address'
             type="text"
             placeholder="Address"
-            value={formData.receiver_address}
-            onChange={(e) => setFormData({...formData, receiver_address: e.target.value})}
+            value={orderData.receiver_address}
+            onChange={(e) => setOrderData({...orderData, receiver_address: e.target.value})}
           />
         </div>
        

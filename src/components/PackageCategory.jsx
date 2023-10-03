@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
-
-function PackageInfo( {formData, setFormData}) {
+import { PencilSquareIcon, CurrencyDollarIcon, MapPinIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/solid'
+function PackageInfo( {orderData, setOrderData}) {
     return (
       <div className='flex p-4 justify-between content-center items-center' >
       <div className="w-screen">
@@ -13,9 +13,9 @@ function PackageInfo( {formData, setFormData}) {
               <select
                 id="category"
                 className=" rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={formData.package_category}
+                value={orderData.package_category}
                 onChange={(e) =>
-                  setFormData({ ...formData, package_category: e.target.value })
+                  setOrderData({ ...orderData, package_category: e.target.value })
                 }
               >
                 <option selected>Category</option>
@@ -32,9 +32,9 @@ function PackageInfo( {formData, setFormData}) {
               <input id="Weight"
                 placeholder='Kilograms' type='number'
                 className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={formData.package_weight}
+                value={orderData.package_weight}
                 onChange={(e) =>
-                  setFormData({ ...formData, package_weight: e.target.value })
+                  setOrderData({ ...orderData, package_weight: e.target.value })
                 } />
             </div>
             <div className="mb-4">
@@ -48,9 +48,9 @@ function PackageInfo( {formData, setFormData}) {
                 id="Length"
                 name="Length"
                 placeholder="Length"
-                value={formData.length}
+                value={orderData.length}
                 onChange={(e) =>
-                  setFormData({ ...formData, length: e.target.value })
+                  setOrderData({ ...orderData, length: e.target.value })
                 }
                 />
                                 <span className='focus:ring-blue-500 focus:border-blue-500 p-3.5 dark:bg-gray-500 bg-gray-200 dark:border-gray-600 rounded-r-lg dark:placeholder-gray-400 dark:text-zinc-300 font-bold text-xs dark:focus:ring-blue-500 dark:focus:border-blue-500'>Cm</span>
@@ -60,9 +60,9 @@ function PackageInfo( {formData, setFormData}) {
                 id="width"
                 name="Width"
                 placeholder="Width"
-                value={formData.width}
+                value={orderData.width}
                 onChange={(e) =>
-                  setFormData({ ...formData, width: e.target.value })
+                  setOrderData({ ...orderData, width: e.target.value })
                 }
                 />
                                 <span className='focus:ring-blue-500 focus:border-blue-500 p-3.5 dark:bg-gray-500 bg-gray-200 dark:border-gray-600 rounded-r-lg dark:placeholder-gray-400 dark:text-zinc-300 font-bold text-xs dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-1'>Cm</span>
@@ -71,9 +71,9 @@ function PackageInfo( {formData, setFormData}) {
                 id="dimensions"
                 name="dimensions"
                 placeholder="Height"
-                value={formData.package_demesions}
+                value={orderData.package_demesions}
                 onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
+                  setOrderData({ ...orderData, email: e.target.value })
                 }
                 />
                                 <span className='focus:ring-blue-500 focus:border-blue-500 p-3.5 dark:bg-gray-500 bg-gray-200 dark:border-gray-600 rounded-r-lg dark:placeholder-gray-400 dark:text-zinc-300 font-bold text-xs dark:focus:ring-blue-500 dark:focus:border-blue-500'>Cm</span>
@@ -82,37 +82,25 @@ function PackageInfo( {formData, setFormData}) {
                 </div>
             </div>
             <div className="mb-4">
-              <label className="block   mb-2" htmlFor="city">
-                City
+              <label className="block   mb-2" htmlFor="shipping">
+                Select Shipping
               </label>
-              <input
-                className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                id="city"
-                name="city"
-                type="text"
-                placeholder="City"
-                value={formData.city}
+              <select
+                id="shipping"
+                className=" rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                value={orderData.package_shipping}
                 onChange={(e) =>
-                  setFormData({ ...formData, city: e.target.value })
+                  setOrderData({ ...orderData, package_shipping: e.target.value })
                 }
-              />
+              >
+                <option selected>Shipping</option>
+                
+                <option value="ELE">Regularaa</option>
+                <option value="CA">Cargo</option>
+                <option value="FR">Express</option>
+              </select>
             </div>
-            <div className="mb-4">
-              <label className="block   mb-2" htmlFor="address">
-                Address Detail
-              </label>
-              <input
-                className="rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                id="address"
-                name="address"
-                type="text"
-                placeholder="Address"
-                value={formData.address}
-                onChange={(e) =>
-                  setFormData({ ...formData, address: e.target.value })
-                }
-              />
-            </div>
+            
           </form>
         </div>
       </div>
