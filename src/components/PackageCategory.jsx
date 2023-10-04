@@ -4,7 +4,7 @@ import { PencilSquareIcon, CurrencyDollarIcon, MapPinIcon, QuestionMarkCircleIco
 function PackageInfo( {orderData, setOrderData}) {
     return (
       <div className='flex p-4 justify-between content-center items-center' >
-      <div className="w-screen">
+      <div className="w-screen"> 
           <form className="rounded-lg">
             <div className="mb-4">
               <label className="block mb-2" htmlFor="category">
