@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Stepper } from 'react-form-stepper';
 import Sender from "./Sender";
 import Receiver from "./receiver";
-import Delivery from "./Delivery";
 import PackageInfo from "./PackageCategory";
 import { useNavigate } from "react-router-dom";
 import { set, ref } from "firebase/database";
 import { db } from "../firebase";
+
 function  MultiStepForm () {
 
 
@@ -54,12 +54,8 @@ function  MultiStepForm () {
     setStep(step + 1);
     setCurrentStep(currentStep+ 1);
     console.log(orderData);
-  }
-    
-    
+  }    
   };
-
-  
   
   const handleComplete = () => {
       writeOrder(orderData)
@@ -106,5 +102,6 @@ function  MultiStepForm () {
 </>
   );
 }
+
 
 export default MultiStepForm;
