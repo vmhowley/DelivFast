@@ -10,6 +10,7 @@ function LoginWithPass() {
     "email": "",
     "password": ""
   })
+  const navigate = useNavigate();
 
   function handleSign (e) {
     e.preventDefault();
@@ -18,8 +19,8 @@ function LoginWithPass() {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log(userCredential);
-      localStorage.setItem("authenticated");
+      localStorage.setItem("authenticated", true);
+      navigate('/')
       // ...
     })
     .catch((error) => {
@@ -32,10 +33,10 @@ function LoginWithPass() {
 
 return(
         
-      <div className='flex p-4 justify-between content-center items-center' >
-      <div className="w-screen">
+      <div className='flex p-4 justify-center  items-center ' >
+      <div className="w-96">
       
-        <form onSubmit={handleSign} className="rounded-lg  ">
+        <form onSubmit={handleSign} className="rounded-lg  grid">
           <div className="mb-4">
             <label
               className="block   mb-2"
@@ -71,10 +72,8 @@ return(
               onChange={(e) => setLoginData({...loginData, password: e.target.value})}
             />
           </div>
-          
-         
-  
-        <button onClick={handleSign} >Sign in</button>
+
+        <button type='submit' value='submit' className='btn bg-black' >Sign in</button>
         </form>
       </div>
       </div>

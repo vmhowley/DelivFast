@@ -6,23 +6,23 @@ import Hero from "../components/Hero";
 import TransactionHist from "../components/TransactionHist";
 import NavBar from "../components/NavBar";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const  Home = () => {
-  const navigate = useNavigate();
 
   const [authenticated, setauthenticated] = useState(null);
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem("authenticated");
     if (loggedInUser) {
       setauthenticated(loggedInUser);
     }
+
   }, []);
 
-  if (authenticated === null) {
-    
-  // Redirect
-  navigate('/login');
+  if (!authenticated) {
+    return <Navigate replace to="/login" />;
+    // Redirect
   } else {
   return (
     <div className="mt-[70px] mb-20">
