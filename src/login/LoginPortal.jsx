@@ -4,12 +4,10 @@ import googleIcon from '../images/google_icon.png'
 import appleIcon from '../images/apple_icon.png'
 import Logo from '../images/logo.png/'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
-import { useState } from 'react'
 
 
 
 function LoginPortal({step, setStep}) {
-   
     
     const handleForm = () => {
         setStep(step + 1)
@@ -52,5 +50,6 @@ function LoginPortal({step, setStep}) {
     </>
   );
 }
+
 
 export default LoginPortal

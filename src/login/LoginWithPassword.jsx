@@ -5,12 +5,12 @@ import { auth } from "../firebase"
 import { useNavigate } from 'react-router-dom';
 
 function LoginWithPass() {
+  const navigate = useNavigate();
 
   const [loginData, setLoginData] = useState({
     "email": "",
     "password": ""
   })
-  const navigate = useNavigate();
 
   function handleSign (e) {
     e.preventDefault();
@@ -19,9 +19,12 @@ function LoginWithPass() {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      localStorage.setItem("authenticated", true);
-      navigate('/')
-      // ...
+      if (user){
+
+        localStorage.setItem("authenticated", true);
+        console.log(userCredential)
+        navigate('/');
+      }
     })
     .catch((error) => {
       const errorCode = error.code;

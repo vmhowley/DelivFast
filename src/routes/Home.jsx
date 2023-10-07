@@ -19,8 +19,9 @@ const  Home = () => {
     }
 
   }, []);
+  const isLogged = localStorage.getItem("authenticated");
 
-  if (!authenticated) {
+  if (!isLogged) {
     return <Navigate replace to="/login" />;
     // Redirect
   } else {
