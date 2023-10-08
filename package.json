@@ -1,7 +1,7 @@
 {
   "name": "delifast",
   "private": true,
-  "homepage": "https://vmhowley.github.io/DelivFast",
+  "homepage": "/",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
