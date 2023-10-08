@@ -4,15 +4,23 @@ import googleIcon from '../images/google_icon.png'
 import appleIcon from '../images/apple_icon.png'
 import Logo from '../images/logo.png/'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
-
+import { signInWithRedirect, GoogleAuthProvider, getRedirectResult } from "firebase/auth";  
+import { auth, signInWithGoogle } from "../firebase"
+import { Navigate } from 'react-router-dom'
 
 
 function LoginPortal({step, setStep}) {
-    
-    const handleForm = () => {
+
+  const handleForm = (e) => {
+      e.preventDefault();
         setStep(step + 1)
     }
-  return (
+   
+    const logged = localStorage.getItem('authenticated')
+    if (logged) {
+      return <Navigate replace to='/'/>
+    }
+    return (
     <>
       <div
         className="flex space-x-2 cursor-pointer font-bold relative  m-2 mt-9"
@@ -31,9 +39,9 @@ function LoginPortal({step, setStep}) {
             <img className="w-7 mr-2" src={facebookIcon} alt="asd" />
             Continue with Facebook
           </button>
-          <button className="btn flex  justify-center items-center h-16 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white">
+          <button onClick={signInWithGoogle} className="btn flex  justify-center items-center h-16 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white">
             <img className="w-7 mr-2" src={googleIcon} alt="asd" />
-            Continue with Facebook
+            Continue with Google
           </button>
           <button className="btn flex  justify-center items-center h-16 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white">
             <img className="w-7 mr-2" src={appleIcon} alt="asd" />
