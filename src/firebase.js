@@ -1,10 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
-import { GoogleAuthProvider, getAuth, signInWithRedirect, getRedirectResult } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, getRedirectResult } from "firebase/auth";
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { App, URLOpenListenerEvent } from '@capacitor/app';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,13 +28,10 @@ export const auth = getAuth();
 export const db = getDatabase(app);
 
 //sign with google popup
-export const signInWithGoogle = async () => {
+export const signInWithGoogle = () => {
   
-  const provider = new GoogleAuthProvider();
-  await signInWithRedirect(auth, provider);
- 
- };
- getRedirectResult(auth)
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(auth, provider)
   .then((result) => {
    const name = result.user.displayName;
    const email = result.user.email;
@@ -50,3 +46,4 @@ export const signInWithGoogle = async () => {
  .catch((error) => {
   console.log(error);
  })
+}

@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: 'delifast',
   webDir: 'dist',
   server: {
-    androidScheme: 'http'
+    androidScheme: 'https'
   }
 };
 
