@@ -7,16 +7,18 @@ import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 import { signInWithRedirect, GoogleAuthProvider, getRedirectResult } from "firebase/auth";  
 import { auth, signInWithGoogle } from "../firebase"
 import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 function LoginPortal({step, setStep}) {
+  const navigate = useNavigate();
 
   const handleForm = (e) => {
-      e.preventDefault();
-        setStep(step + 1)
+    e.preventDefault();
+    navigate('/loginWithPass')
     }
    
-    const logged = localStorage.getItem('authenticated')
+    const logged = localStorage.getItem('authenticated');
     if (logged) {
       return <Navigate replace to='/'/>
     }

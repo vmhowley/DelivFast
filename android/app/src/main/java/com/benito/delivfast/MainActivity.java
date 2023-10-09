@@ -1,4 +1,4 @@
-package com.example.app;
+package com.benito.delivfast;
 
 import com.getcapacitor.BridgeActivity;
 

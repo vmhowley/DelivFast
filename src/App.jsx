@@ -8,13 +8,15 @@ import NavBar from './components/NavBar'
 import NotFound from './routes/NotFound'
 import Login from './routes/Login'
 import LoginPortal from './login/LoginPortal'
+import LoginWithPass from './login/LoginWithPassword'
 function App() {
 
   return (
     <BrowserRouter>
     <Routes>
       <Route index element={<Home />} />
-      <Route path="login" element={<LoginPortal />} />
+      <Route path="/login" element={<LoginPortal />} />
+      <Route path="/loginwithPass" element={<LoginWithPass />} />
       <Route path="/orders" element={<OrdersList />} />
       <Route path="/transactions" element={<Transactions />} />
       <Route path="/create-order" element={<MakeOrder />} />

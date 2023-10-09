@@ -2,7 +2,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import { Navigate } from "react-router-dom";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -39,6 +38,6 @@ export const signInWithGoogle = () => {
      window.location.reload();
   })
   .catch((error) => {
-   console.log(error);
+   alert(error);
   })
  };
