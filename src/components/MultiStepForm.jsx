@@ -4,39 +4,29 @@ import Sender from "./Sender";
 import Receiver from "./receiver";
 import PackageInfo from "./PackageCategory";
 import { useNavigate } from "react-router-dom";
-import { set, ref } from "firebase/database";
+import { set, ref, push } from "firebase/database";
 import { db } from "../firebase";
+import { FirebaseAuthentication } from '@robingenz/capacitor-firebase-authentication';
 
 function  MultiStepForm () {
 
 
   const [orderData, setOrderData] = useState({
-    orderId: "",
-    sender_name: "",
-    sender_email: "",
-    sender_phone: "",
-    sender_address: "",
-    sender_city: "",
-    receiver_name: "",
-    receiver_email: "",
-    receiver_phone: "",
-    receiver_address: "",
-    receiver_city: "",
-    package_category: "",
-    package_weight: "",
-    package_height: "",
-    package_width: "",
-    package_shipping: "",
-    payment: "",
-    delivery: "",
-    status: "",
+    transHist : "New Shipping Made",
+    status : 'Pending'
+
   });
+
+  
   const writeOrder = (orderData) => {
-    set(ref(db, 'users/' + '5155564'), {
+    const uid = localStorage.getItem('uid')
+    const orderListRef = ref(db, 'users/' + uid +'/orders')
+    const newOrderRef  = push(orderListRef)
+    set( newOrderRef , { 
       orderData
     });
   }
-  
+
 
 
   const navigate = useNavigate();
@@ -45,21 +35,16 @@ function  MultiStepForm () {
   const [currentStep, setCurrentStep] = useState(0);
  
   const handleNext = () => {
-    
-  if (orderData.sender_name.length === 0) {
-    alert('Please enter a sender name first before submitting your form.');
-  }else if (orderData.sender_phone.length === 0) {
-    alert('Please enter a valid Phone Number before submitting your form.');
-  }else{
+ 
     setStep(step + 1);
     setCurrentStep(currentStep+ 1);
     console.log(orderData);
-  }    
   };
   
   const handleComplete = () => {
       writeOrder(orderData)
     console.log(orderData);
+    alert('order Created')
     navigate("/");    
     
   };

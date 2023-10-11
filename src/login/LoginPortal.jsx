@@ -26,11 +26,13 @@ function LoginPortal({step, setStep}) {
     const name = result.user.displayName;
     const email = result.user.email;
     const profilePic = result.user.photoUrl;
+    const uid = result.user.uid;
      console.log(result);
      localStorage.setItem('authenticated', true);
      localStorage.setItem('name', name);
      localStorage.setItem('email', email);
      localStorage.setItem('profilePic', profilePic);
+     localStorage.setItem('uid', uid);
      window.location.reload();  };
 
   const navigate = useNavigate();
