@@ -9,9 +9,20 @@ import NotFound from './routes/NotFound'
 import Login from './routes/Login'
 import LoginPortal from './login/LoginPortal'
 import LoginWithPass from './login/LoginWithPassword'
-function App() {
+import { App as CapacitorApp } from '@capacitor/app';
 
+import { useEffect } from "react";
+
+function App() {
+  CapacitorApp.addListener('backButton', ({canGoBack}) => {
+    if(!canGoBack){
+      CapacitorApp.exitApp();
+    } else {
+      window.history.back();
+    }
+  });
   return (
+
     <BrowserRouter>
     <Routes>
       <Route index element={<Home />} />
@@ -23,7 +34,9 @@ function App() {
       <Route path="*" element={<NotFound />} />
     </Routes>
     </BrowserRouter>
+    
     )
+    
 }
 
 export default App

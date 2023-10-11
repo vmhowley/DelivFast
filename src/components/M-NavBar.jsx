@@ -2,7 +2,6 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import { BellIcon } from '@heroicons/react/24/solid'
-import { signInWithGoogle } from '../firebase';
 import avatar from '../images/avatar.png'
 export default function Mnav() {
   const name = localStorage.getItem('name');

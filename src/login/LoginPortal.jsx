@@ -4,13 +4,35 @@ import googleIcon from '../images/google_icon.png'
 import appleIcon from '../images/apple_icon.png'
 import Logo from '../images/logo.png/'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
-import { signInWithRedirect, GoogleAuthProvider, getRedirectResult } from "firebase/auth";  
-import { auth, signInWithGoogle } from "../firebase"
+import { getAuth,
+  GoogleAuthProvider,
+  OAuthProvider,
+  PhoneAuthProvider,
+  signInWithCredential,} from "firebase/auth";  
 import { Navigate } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { FirebaseAuthentication } from '@robingenz/capacitor-firebase-authentication';
+
 
 
 function LoginPortal({step, setStep}) {
+  const signInWithGoogle = async () => {
+    // 1. Create credentials on the native layer
+    const result = await FirebaseAuthentication.signInWithGoogle();
+    // 2. Sign in on the web layer using the id token
+    const auth = getAuth();
+    const credential = GoogleAuthProvider.credential(result.credential?.idToken);
+    await signInWithCredential(auth, credential);
+    const name = result.user.displayName;
+    const email = result.user.email;
+    const profilePic = result.user.photoUrl;
+     console.log(result);
+     localStorage.setItem('authenticated', true);
+     localStorage.setItem('name', name);
+     localStorage.setItem('email', email);
+     localStorage.setItem('profilePic', profilePic);
+     window.location.reload();  };
+
   const navigate = useNavigate();
 
   const handleForm = (e) => {

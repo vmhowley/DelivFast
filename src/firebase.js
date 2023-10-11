@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
-import { GoogleAuthProvider, getAuth, signInWithPopup, getRedirectResult } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import React, { useEffect } from 'react';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -28,22 +28,3 @@ export const auth = getAuth();
 export const db = getDatabase(app);
 
 //sign with google popup
-export const signInWithGoogle = () => {
-  
-  const provider = new GoogleAuthProvider()
-  signInWithPopup(auth, provider)
-  .then((result) => {
-   const name = result.user.displayName;
-   const email = result.user.email;
-   const profilePic = result.user.photoURL;
-    console.log(result);
-    localStorage.setItem('authenticated', true);
-    localStorage.setItem('name', name);
-    localStorage.setItem('email', email);
-    localStorage.setItem('profilePic', profilePic);
-    window.location.reload();
- })
- .catch((error) => {
-  console.log(error);
- })
-}

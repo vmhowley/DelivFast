@@ -1,14 +1,30 @@
 import React from "react";
 import VisaLogo from "../images/visa.png";
 export default function Ccard() {
+  const isFilled = true;
+   if(isFilled) {
+    const cardName = localStorage.getItem('name')
+    localStorage.setItem('cardName', ' VICTOR MORILLO')
+  }
   return (
-    <div className="relative m-auto   mb-2 rounded-3xl">
+    <>
+    {isFilled ? cardFilled() : <div className="flex justify-center"><button className="btn">Add Card</button></div>}
+    </>  
+  );
+}
+
+const cardFilled = () => {
+  const name = localStorage.getItem('cardName');
+  const lastNums = localStorage.getItem('lastNums');
+  const cardProvider = localStorage.getItem('cardProvider');
+  const accountBalance = localStorage.getItem('accountBalance');
+return (<div className="relative m-auto   mb-2 rounded-3xl">
       <div className="w-96 h-52 m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-sm transition-transform transform hover:scale-110">
         <div className="w-full px-8 absolute top-8">
           <div className="flex justify-between">
             <div className="grid gap-1">
-              <span className="font-bold text-2xl">BENITO HOWLEY</span>
-              <p className="text-3xl">•••• •••• •••• 7632
+              <span className="font-bold text-2xl">{name}</span>
+              <p className="text-3xl">•••• •••• •••• {lastNums}
             </p>
             </div>
           </div>
@@ -23,5 +39,5 @@ export default function Ccard() {
         </div>
       </div>
     </div>
-  );
+)
 }
