@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Stepper } from 'react-form-stepper';
 import Sender from "./Sender";
+import Payment from "./Payment";
 import Receiver from "./receiver";
 import PackageInfo from "./PackageCategory";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +21,7 @@ function  MultiStepForm () {
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     const date = today.getDate();
-    return `${year}/${date}/${month}`;
+    return `${year}/${month}/${date}`;
   }
   
   const writeOrder = (orderData) => {
@@ -46,10 +47,11 @@ function  MultiStepForm () {
   };
   
   const date = getDate();
+  const date1 = new Date();
   const handleComplete = () => {
-    const showTime = date.getHours() 
-        + ':' + date.getMinutes() 
-        + ":" + date.getSeconds();
+    const showTime = date1.getHours()
+        + ':' + date1.getMinutes() 
+        + ":" + date1.getSeconds()
     orderData.date = date;
     orderData.time = showTime;
     writeOrder(orderData)
@@ -70,9 +72,9 @@ function  MultiStepForm () {
     styleConfig={{ completedBgColor: '#00BFA5', activeBgColor: '#00BFA5', inactiveBgColor: 'gray',}} steps={[{label: 'Sender'}, {label: 'Receiver'}, {label: 'Package'}, {label: 'Payment'}, {label: 'Finish'}]} activeStep={currentStep}   />
       <div className="p-4 mb-16 font-semibold">
         
-        {step === 1 ? <Sender orderData={orderData} setOrderData={setOrderData}   /> : step === 2 ? <Receiver orderData={orderData} setOrderData={setOrderData} /> : step === 3 ? < PackageInfo orderData={orderData} setOrderData={setOrderData}/> : null }
+        {step === 1 ? <Sender orderData={orderData} setOrderData={setOrderData}   /> : step === 2 ? <Receiver orderData={orderData} setOrderData={setOrderData} /> : step === 3 ? < PackageInfo orderData={orderData} setOrderData={setOrderData}/> : step == 4  ? < Payment orderData={orderData} setOrderData={setOrderData}/>: null }
         
-        <div className="flex justify-around content-center items-center">
+        <div className="grid gap-2 justify-around content-center items-center">
           {step > 1 && (
             <button
             className="btn"
@@ -83,11 +85,11 @@ function  MultiStepForm () {
           )}
           {step <= 5 && (
             <button
-            className="btn bg-slate-800"
+            className="btn bg-emerald-400"
             value="Next"
               onClick={step === 5 ?  handleComplete : handleNext}    
             >
-              {step === 5 ? "Finish" : "Next"}
+              {step === 5 ? "Finish" : "Continue"}
             </button>
           )}
           

@@ -42,7 +42,7 @@ export default function TransactionHist() {
           {window.location.pathname == '/' ? 
           <a className="font-bold" href="/transactions">See All </a> : ''}
         </div>
-        {orders.map((order, index) => (
+        {window.location.pathname== '/transactions' ? orders.map((order, index) => (
           <div
           key={index}
           className="flex flex-row justify-between  mb-2 items-center content-center"
@@ -56,9 +56,25 @@ export default function TransactionHist() {
                 {order.orderData.status}
               </p>
             </div>
-            <a className="text-emerald-400 "><TimeAgo datetime={order.orderData.date + ' ' + order.orderData.time} locale="en"/> </a>
+            <a className="text-emerald-400 "><TimeAgo minPeriod={60} locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
           </div>
-        ))}
+        )) : orders.slice(0, 3).map((order, index) => (
+          <div
+          key={index}
+          className="flex flex-row justify-between  mb-2 items-center content-center"
+          >
+            <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
+              <BankNotesIcon  className="h-6 w-6 text-emerald-400" />
+            </div>
+            <div className="grid  gap-2 p-2">
+              <span className="">{order.orderData.transHist}</span>
+              <p className="text-xs text-zinc-500 dark:text-zinc-300 relative w-52">
+                {order.orderData.status}
+              </p>
+            </div>
+            <a className="text-emerald-400 "><TimeAgo minPeriod={60} locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
+          </div>
+        )) }
       </div>
     </>
   );
