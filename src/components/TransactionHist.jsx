@@ -8,7 +8,7 @@ export default function TransactionHist() {
   const [orders, setOrder] = useState([]);
   useEffect(() => {
     const uid = localStorage.getItem('uid')
-    const query = ref(db, "users/" + uid );
+    const query = ref(db, "users/" + uid + '/orders' );
     return onValue(query, (snapshot) => {
       const data = snapshot.val();
 
@@ -19,50 +19,19 @@ export default function TransactionHist() {
       }
     });
   }, []);
-  const transactions = 
-    [{
-      "id": 1,
-      "title": "New Order Made!",
-      "description":
-        "You have created a new shipping order",
-        "time": "4 hours ago",
-        "icon": "BanknotesIcon"
-    },
-    {
-      "id": 2,
-      "title": "Payment Successful!",
-      "description":
-        "your Payment was successful",
-        "time": "4 hours ago",
-        "icon": "BanknotesIcon"
-        },
-        {
-          "id": 3,
-          "title": "New Order Made!",
-          "description":
-            "You have created a new shipping order",
-            "time": "4 hours ago",
-            "icon": "BanknotesIcon"
-        },
-        {
-          "id": 4,
-          "title": "New Order Made!",
-          "description":
-            "You have created a new shipping order",
-            "time": "4 hours ago",
-            "icon": "BanknotesIcon"
-        },
-        {
-          "id": 5,
-          "title": "New Order Made!",
-          "description":
-            "You have created a new shipping order",
-            "time": "4 hours ago",
-            "icon": "BanknotesIcon"
-        },
-       ]
-  ;
   
+    if (orders < 1 ) {
+      return  <>
+      <div className="flex justify-center flex-wrap">
+      <div className="flex justify-between  w-96 items-center mb-4 text-emerald-400 ">
+      <span className="font-bold text-xl">Transaction History</span>
+      <a className="font-bold" href="/transactions">See All </a>
+    </div>
+      </div>  
+      <span className="flex justify-center text-red-600 text-lg">You don't have any transactions</span>       
+      </> 
+      
+  }else
   return (
     <>
       <div className="text-black font-semibold dark:text-white  divide-y divide-slate-400/30 grid w-max m-auto mt-4">
@@ -79,12 +48,12 @@ export default function TransactionHist() {
               <BankNotesIcon  className="h-6 w-6 text-emerald-400" />
             </div>
             <div className="grid  gap-2 p-2">
-              <span className="">{order.desc}</span>
+              <span className="">{order.orderData.transHist}</span>
               <p className="text-xs text-zinc-500 dark:text-zinc-300 relative w-52">
-                {order.description}
+                {order.orderData.status}
               </p>
             </div>
-            <a className="text-emerald-400 ">4 hours ago</a>
+            <a className="text-emerald-400 ">{order.orderData.time}</a>
           </div>
         ))}
       </div>

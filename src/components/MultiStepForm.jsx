@@ -8,14 +8,20 @@ import { set, ref, push } from "firebase/database";
 import { db } from "../firebase";
 
 function  MultiStepForm () {
-
-
+  
+  
   const [orderData, setOrderData] = useState({
-    transHist : "New Shipping Made",
+    transHist : "New Order Created",
     status : 'Pending'
-
+    
   });
-
+  function getDate() {
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const year = today.getFullYear();
+    const date = today.getDate();
+    return `${month}/${date}/${year}`;
+  }
   
   const writeOrder = (orderData) => {
     const uid = localStorage.getItem('uid')
@@ -25,23 +31,28 @@ function  MultiStepForm () {
       orderData
     });
   }
-
-
-
+  
+  
   const navigate = useNavigate();
-
+  
   const [step, setStep] = useState(1);
   const [currentStep, setCurrentStep] = useState(0);
- 
+  
   const handleNext = () => {
- 
+    
     setStep(step + 1);
     setCurrentStep(currentStep+ 1);
     console.log(orderData);
   };
   
   const handleComplete = () => {
-      writeOrder(orderData)
+    const date = new Date();
+    const showTime = date.getHours() 
+        + ':' + date.getMinutes() 
+        + ":" + date.getSeconds();
+    orderData.date = date;
+    orderData.time = showTime;
+    writeOrder(orderData)
     console.log(orderData);
     alert('order Created')
     navigate("/");    

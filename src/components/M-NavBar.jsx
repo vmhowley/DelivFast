@@ -13,7 +13,7 @@ export default function Mnav() {
     <div className="justify-start items-center gap-4 flex">
         <img className="w-[49px] h-[49px] rounded-[56px] border border-white border-opacity-30" src={profilePic ? profilePic : avatar }/>
         <div className="flex-col justify-center items-start gap-1 inline-flex">
-            <span className="font-bold text-xl">{name}</span>
+            <span className="font-bold ">{name}</span>
             <p className="text-zinc-400 text-xs font-normal dark:text-zinc-300   ">{email}</p>
         </div>
     </div>

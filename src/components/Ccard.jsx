@@ -24,14 +24,14 @@ return (<div className="relative m-auto   mb-2 rounded-3xl">
           <div className="flex justify-between">
             <div className="grid gap-1">
               <span className="font-bold text-2xl">{name}</span>
-              <p className="text-3xl">•••• •••• •••• {lastNums}
+              <p className="text-3xl">•••• •••• •••• 7895
             </p>
             </div>
           </div>
           <div className="pt-6 pr-6 flex justify-between items-center ">
             <div className="grid gap-2">
               <p className="font-semibold text-sm">Your Balance</p>
-              <span className="font-bold text-4xl text-white">$9,500</span>           
+              <span className="font-bold text-4xl text-white">$18,548</span>           
             </div>
             <img className="w-16 h-6" src={VisaLogo} />
 
