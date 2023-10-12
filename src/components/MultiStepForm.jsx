@@ -20,7 +20,7 @@ function  MultiStepForm () {
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     const date = today.getDate();
-    return `${month}/${date}/${year}`;
+    return `${year}/${date}/${month}`;
   }
   
   const writeOrder = (orderData) => {
@@ -45,15 +45,15 @@ function  MultiStepForm () {
     console.log(orderData);
   };
   
+  const date = getDate();
   const handleComplete = () => {
-    const date = new Date();
     const showTime = date.getHours() 
         + ':' + date.getMinutes() 
         + ":" + date.getSeconds();
     orderData.date = date;
     orderData.time = showTime;
     writeOrder(orderData)
-    alert('order Created')
+    alert('order Created' + getDate())
     navigate("/");    
     
   };

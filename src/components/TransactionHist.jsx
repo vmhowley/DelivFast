@@ -3,6 +3,7 @@ import BankNotesIcon from "@heroicons/react/24/solid/BanknotesIcon"
 import { PencilSquareIcon } from '@heroicons/react/24/solid'
 import { db } from "../firebase";
 import { get, ref, onValue } from "firebase/database";
+import TimeAgo from 'timeago-react';
 
 export default function TransactionHist() {
   const [orders, setOrder] = useState([]);
@@ -32,13 +33,14 @@ export default function TransactionHist() {
       <span className="flex justify-center text-red-600 text-lg">You don't have any transactions</span>       
       </> 
     }else{
-      
+      console.log(window.location.pathname)
       return (
         <>
       <div className="text-black font-semibold dark:text-white  divide-y divide-slate-400/30 grid w-max m-auto mt-4">
         <div className="flex justify-between w-96 items-center mb-4 text-emerald-400 ">
           <span className="font-bold text-xl">Transaction History</span>
-          <a className="font-bold" href="/transactions">See All </a>
+          {window.location.pathname == '/' ? 
+          <a className="font-bold" href="/transactions">See All </a> : ''}
         </div>
         {orders.map((order, index) => (
           <div
@@ -54,7 +56,7 @@ export default function TransactionHist() {
                 {order.orderData.status}
               </p>
             </div>
-            <a className="text-emerald-400 ">{order.orderData.time}</a>
+            <a className="text-emerald-400 "><TimeAgo datetime={order.orderData.date + ' ' + order.orderData.time} locale="en"/> </a>
           </div>
         ))}
       </div>
