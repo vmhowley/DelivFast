@@ -6,7 +6,6 @@ import PackageInfo from "./PackageCategory";
 import { useNavigate } from "react-router-dom";
 import { set, ref, push } from "firebase/database";
 import { db } from "../firebase";
-import { FirebaseAuthentication } from '@robingenz/capacitor-firebase-authentication';
 
 function  MultiStepForm () {
 

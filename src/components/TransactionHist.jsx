@@ -1,9 +1,18 @@
 import React from "react";
 import BankNotesIcon from "@heroicons/react/24/solid/BanknotesIcon"
 import { PencilSquareIcon } from '@heroicons/react/24/solid'
-
+import { db } from "../firebase";
+import { get, ref, onValue } from "firebase/database";
 
 export default function TransactionHist() {
+const uid = localStorage.getItem('uid');
+  const orderRef = ref(db, 'users/' + uid);
+  onValue(orderRef, (snapshot) => {
+    const data = snapshot.val();
+    const transaction =  JSON.parse(data);
+    console.log(transaction)
+  });
+
   const transactions = 
     [{
       "id": 1,
