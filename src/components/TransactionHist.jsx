@@ -9,7 +9,7 @@ const uid = localStorage.getItem('uid');
   const orderRef = ref(db, 'users/' + uid);
   onValue(orderRef, (snapshot) => {
     const data = snapshot.val();
-    const transaction =  JSON.parse(data);
+    const transaction = (data);
     console.log(transaction)
   });
 
@@ -54,8 +54,6 @@ const uid = localStorage.getItem('uid');
             "time": "4 hours ago",
             "icon": "BanknotesIcon"
         },
-        
-    
        ]
   ;
   
