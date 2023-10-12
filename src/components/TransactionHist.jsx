@@ -19,8 +19,9 @@ export default function TransactionHist() {
       }
     });
   }, []);
-  
-    if (orders < 1 ) {
+
+    
+    if (orders == 0) {
       return  <>
       <div className="flex justify-center flex-wrap">
       <div className="flex justify-between  w-96 items-center mb-4 text-emerald-400 ">
@@ -30,10 +31,10 @@ export default function TransactionHist() {
       </div>  
       <span className="flex justify-center text-red-600 text-lg">You don't have any transactions</span>       
       </> 
+    }else{
       
-  }else
-  return (
-    <>
+      return (
+        <>
       <div className="text-black font-semibold dark:text-white  divide-y divide-slate-400/30 grid w-max m-auto mt-4">
         <div className="flex justify-between w-96 items-center mb-4 text-emerald-400 ">
           <span className="font-bold text-xl">Transaction History</span>
@@ -41,8 +42,8 @@ export default function TransactionHist() {
         </div>
         {orders.map((order, index) => (
           <div
-            key={index}
-            className="flex flex-row justify-between  mb-2 items-center content-center"
+          key={index}
+          className="flex flex-row justify-between  mb-2 items-center content-center"
           >
             <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
               <BankNotesIcon  className="h-6 w-6 text-emerald-400" />
@@ -59,4 +60,6 @@ export default function TransactionHist() {
       </div>
     </>
   );
+        }
 }
+

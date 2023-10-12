@@ -53,7 +53,6 @@ function  MultiStepForm () {
     orderData.date = date;
     orderData.time = showTime;
     writeOrder(orderData)
-    console.log(orderData);
     alert('order Created')
     navigate("/");    
     

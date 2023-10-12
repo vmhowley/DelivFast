@@ -12,6 +12,7 @@ import { getAuth,
 import { Navigate } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { FirebaseAuthentication } from '@robingenz/capacitor-firebase-authentication';
+import { auth } from '../firebase'
 
 
 
@@ -20,21 +21,18 @@ function LoginPortal({step, setStep}) {
     // 1. Create credentials on the native layer
     const result = await FirebaseAuthentication.signInWithGoogle();
     // 2. Sign in on the web layer using the id token
-    const auth = getAuth();
     const credential = GoogleAuthProvider.credential(result.credential?.idToken);
     await signInWithCredential(auth, credential);
     const name = result.user.displayName;
     const email = result.user.email;
     const profilePic = result.user.photoUrl;
     const uid = result.user.uid;
-     console.log(result);
      localStorage.setItem('authenticated', true);
      localStorage.setItem('name', name);
      localStorage.setItem('email', email);
      localStorage.setItem('profilePic', profilePic);
      localStorage.setItem('uid', uid);
      window.location.reload();  };
-
   const navigate = useNavigate();
 
   const handleForm = (e) => {
@@ -44,6 +42,7 @@ function LoginPortal({step, setStep}) {
    
     const logged = localStorage.getItem('authenticated');
     if (logged) {
+      
       return <Navigate replace to='/'/>
     }
     return (
