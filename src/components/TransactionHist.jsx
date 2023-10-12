@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import BankNotesIcon from "@heroicons/react/24/solid/BanknotesIcon"
 import { PencilSquareIcon } from '@heroicons/react/24/solid'
 import { db } from "../firebase";
 import { get, ref, onValue } from "firebase/database";
 
 export default function TransactionHist() {
-const uid = localStorage.getItem('uid');
-  const orderRef = ref(db, 'users/' + uid);
-  onValue(orderRef, (snapshot) => {
-    const data = snapshot.val();
-    const transaction = (data);
-    console.log(transaction)
-  });
+  const [orders, setOrder] = useState([]);
+  useEffect(() => {
+    const uid = localStorage.getItem('uid')
+    const query = ref(db, "users/" + uid );
+    return onValue(query, (snapshot) => {
+      const data = snapshot.val();
 
+      if (snapshot.exists()) {
+        Object.values(data).map((order) => {
+          setOrder((orders) => [...orders, order]);
+        });
+      }
+    });
+  }, []);
   const transactions = 
     [{
       "id": 1,
@@ -64,18 +70,18 @@ const uid = localStorage.getItem('uid');
           <span className="font-bold text-xl">Transaction History</span>
           <a className="font-bold" href="/transactions">See All </a>
         </div>
-        {transactions.map((transaction) => (
+        {orders.map((order, index) => (
           <div
-            key={transaction.id}
+            key={index}
             className="flex flex-row justify-between  mb-2 items-center content-center"
           >
             <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
               <BankNotesIcon  className="h-6 w-6 text-emerald-400" />
             </div>
             <div className="grid  gap-2 p-2">
-              <span className="">{transaction.title}</span>
+              <span className="">{order.desc}</span>
               <p className="text-xs text-zinc-500 dark:text-zinc-300 relative w-52">
-                {transaction.description}
+                {order.description}
               </p>
             </div>
             <a className="text-emerald-400 ">4 hours ago</a>
