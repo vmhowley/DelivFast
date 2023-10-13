@@ -7,6 +7,7 @@ import PackageInfo from "./PackageCategory";
 import { useNavigate } from "react-router-dom";
 import { set, ref, push } from "firebase/database";
 import { db } from "../firebase";
+import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 
 function  MultiStepForm () {
   
@@ -46,9 +47,10 @@ function  MultiStepForm () {
     console.log(orderData);
   };
   
-  const date = getDate();
-  const date1 = new Date();
+  
   const handleComplete = () => {
+    const date = getDate();
+  const date1 = new Date();
     const showTime = date1.getHours()
         + ':' + date1.getMinutes() 
         + ":" + date1.getSeconds()
@@ -61,37 +63,43 @@ function  MultiStepForm () {
   };
 
   const handleBack = () => {
-    setStep(step - 1);
-    setCurrentStep(currentStep - 1);
+    if (step > 1) {
+
+      setStep(step - 1);
+      setCurrentStep(currentStep - 1);
+    }else{
+      history.back()
+
+    }
 
   };
 
   return (
     <> 
+          <div
+        className="flex space-x-2 cursor-pointer font-bold relative  m-2"
+        onClick={handleBack}
+      >
+        <ArrowSmallLeftIcon className="h-6 w-6" />
+        <span className='font-bold '>Back</span>
+      </div>
     <Stepper
-    styleConfig={{ completedBgColor: '#00BFA5', activeBgColor: '#00BFA5', inactiveBgColor: 'gray',}} steps={[{label: 'Sender'}, {label: 'Receiver'}, {label: 'Package'}, {label: 'Payment'}, {label: 'Finish'}]} activeStep={currentStep}   />
+    styleConfig={{ completedBgColor: '#00BFA5', activeBgColor: '#00BFA5', inactiveBgColor: 'zinc',}} steps={[{label: 'Sender'}, {label: 'Receiver'}, {label: 'Package'}, {label: 'Payment'}, {label: 'Finish'}]} activeStep={currentStep}   />
       <div className="p-4 mb-16 font-semibold">
         
         {step === 1 ? <Sender orderData={orderData} setOrderData={setOrderData}   /> : step === 2 ? <Receiver orderData={orderData} setOrderData={setOrderData} /> : step === 3 ? < PackageInfo orderData={orderData} setOrderData={setOrderData}/> : step == 4  ? < Payment orderData={orderData} setOrderData={setOrderData}/>: <ReviewSummary orderData={orderData} setOrderData={setOrderData} /> }
         
-        <div className="grid gap-2 justify-around content-center items-center">
+        <div className="md:flex md:flex-row-reverse grid gap-2 justify-around content-center items-center">
           {step <= 5 && (
             <button
-            className="btn bg-emerald-400"
+            className="btn bg-emerald-400 rounded-full w-96 h-14"
             value="Next"
             onClick={step === 5 ?  handleComplete : handleNext}    
             >
-              {step === 5 ? "Finish" : "Continue"}
+              {step === 5 ? "Confirm order" : "Continue"}
             </button>
           )}
-          {step > 1 && (
-            <button
-            className="btn"
-            onClick={handleBack}
-            >
-              Back
-            </button>
-          )}
+          
           
         </div>
       </div>
@@ -101,40 +109,45 @@ function  MultiStepForm () {
 const ReviewSummary = ({orderData, setOrderData}) => {
   return (
     <>
-    <div className="flex flex-wrap mb-5 justify-center ">
-      <span className="text-2xl">Order Summary</span>
+    <div className="flex mb-2 font-light">
+      <span className="text-lg">Review Summary</span>
     </div>
-    <div className="md:flex justify-center items-center content-center gap-3">
+    <div className="md:grid md:grid-cols-2 justify-center items-center content-center gap-3">
+    <div className="mb-5 shadow-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <div className="grid grid-cols-2 gap-3 place-content-between">
+      <span className="font-light ">Sender Name:</span>
+      <p className="text-sm place-self-end">{orderData.sender_name}</p>
+      <span className="font-light">Phone:</span>
+      <p className="text-sm place-self-end">{orderData.sender_phone}</p>
+      <span className="font-light">Email:</span>
+      <p className="text-sm place-self-end">{orderData.sender_email}</p>
+      <span className="font-light">Address:</span>
+      <p className="text-sm place-self-end">{orderData.sender_address}</p>
 
-    <div className="mb-5 shadow-lg w- rounded-md">
-      <span>Sender Name:</span>
-      <p className="font-light text-sm">{orderData.sender_name}</p>
-      <span>Sender Phone:</span>
-      <p className="font-light text-sm">{orderData.sender_phone}</p>
-      <span>Sender Address:</span>
-      <p className="font-light text-sm">{orderData.sender_address}</p>
-      <span>Sender Name:</span>
-      <p className="font-light text-sm">{orderData.sender_name}</p>
+      </div>
     </div>
-    <div className="mb-5 shadow-lg rounded-md">
-      <span>Receiver Name:</span>
-      <p className="font-light text-sm">{orderData.receiver_name}</p>
-      <span>Receiver Phone:</span>
-      <p className="font-light text-sm">{orderData.receiver_phone}</p>
-      <span>Receiver Address:</span>
-      <p className="font-light text-sm">{orderData.receiver_address}</p>
-      <span>Receiver Name:</span>
-      <p className="font-light text-sm">{orderData.receiver_name}</p>
+    
+    <div className="mb-5 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    <div className="grid grid-cols-2 gap-3 place-content-between">
+
+      <span className="font-light">Receiver Name:</span>
+      <p className="text-sm  place-self-end">{orderData.receiver_name}</p>
+      <span className="font-light">Phone:</span>
+      <p className=" text-sm place-self-end">{orderData.receiver_phone}</p>
+      <span className="font-light">Email:</span>
+      <p className="text-sm place-self-end">{orderData.sender_email}</p>
+      <span className="font-light">Address:</span>
+      <p className=" text-sm place-self-end">{orderData.receiver_address}</p>
+
     </div>
-    <div className="mb-5 shadow-lg rounded-md">
-      <span>Package Category:</span>
-      <p className="font-light text-sm">{orderData.package_category}</p>
-      <span>Package Weight:</span>
-      <p className="font-light text-sm">{orderData.package_weight}. Kg</p>
-      <span>Package Length:</span>
-      <p className="font-light text-sm">{orderData.length}. Cm</p>
-      <span>Package Name:</span>
-      <p className="font-light text-sm">{orderData.receiver_name}</p>
+    </div>
+    <div className="mb-5 shadow-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    <div className="grid grid-cols-2 gap-3 ">
+      <span className="font-light">Shipping Fee</span>
+      <p className=" text-sm place-self-end">$12</p>
+      <span className="font-light">Payment Method:</span>
+      <p className=" text-sm place-self-end">{orderData.payment_type}</p>
+      </div>
     </div>
     </div>
 </>
