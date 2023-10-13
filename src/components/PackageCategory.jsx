@@ -19,15 +19,15 @@ function PackageInfo( {orderData, setOrderData}) {
                 }
               >
                 <option selected>Category</option>
-                <option value="ELE">Electronic</option>
-                <option value="CA">Cloth</option>
-                <option value="FR">Food</option>
-                <option value="DE">Car Part</option>
+                <option value="Electronic">Electronic</option>
+                <option value="Cloth">Cloth</option>
+                <option value="Food">Food</option>
+                <option value="Car Part">Car Part</option>
               </select>
             </div>
             <div className="mb-4">
               <label className="block   mb-2" htmlFor="Weight">
-                Weight
+                Weight Kg
               </label>
               <input id="Weight"
                 placeholder='Kilograms' type='number'

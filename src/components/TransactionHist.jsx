@@ -42,7 +42,8 @@ export default function TransactionHist() {
           {window.location.pathname == '/' ? 
           <a className="font-bold" href="/transactions">See All </a> : ''}
         </div>
-        {window.location.pathname== '/transactions' ? orders.map((order, index) => (
+        {window.location.pathname== '/transactions' ? orders.slice(0).reverse().map((order, index) => (
+          
           <div
           key={index}
           className="flex flex-row justify-between  mb-2 items-center content-center"
@@ -51,25 +52,25 @@ export default function TransactionHist() {
               <BankNotesIcon  className="h-6 w-6 text-emerald-400" />
             </div>
             <div className="grid  gap-2 p-2">
-              <span className="">{order.orderData.transHist}</span>
+              <span className="">{order.orderData.title}</span>
               <p className="text-xs text-zinc-500 dark:text-zinc-300 relative w-52">
-                {order.orderData.status}
+                {order.orderData.description}
               </p>
             </div>
-            <a className="text-emerald-400 "><TimeAgo minPeriod={60} locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
+            <a className="text-emerald-400 "><TimeAgo  locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
           </div>
-        )) : orders.slice(0, 3).map((order, index) => (
+        )) : orders.slice(0).reverse().slice(0, 3).map((order, index) => (
           <div
           key={index}
-          className="flex flex-row justify-between  mb-2 items-center content-center"
+          className="flex flex-row justify-between  mb-2 items-center content-center "
           >
             <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
               <BankNotesIcon  className="h-6 w-6 text-emerald-400" />
             </div>
             <div className="grid  gap-2 p-2">
-              <span className="">{order.orderData.transHist}</span>
-              <p className="text-xs text-zinc-500 dark:text-zinc-300 relative w-52">
-                {order.orderData.status}
+              <span className="">{order.orderData.title}</span>
+              <p className="text-xs flex flex-wrap flex-row-reverse text-zinc-500 dark:text-zinc-300 ">
+                {order.orderData.description}
               </p>
             </div>
             <a className="text-emerald-400 "><TimeAgo minPeriod={60} locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
