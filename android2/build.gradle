@@ -23,10 +23,10 @@ allprojects {
         mavenCentral()
     }
 }
-ext {
-    rgcfaIncludeGoogle = true
-}
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+ext {
+ rgcfaIncludeGoogle = true
 }

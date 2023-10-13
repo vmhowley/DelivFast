@@ -81,7 +81,7 @@ function  MultiStepForm () {
         onClick={handleBack}
       >
         <ArrowSmallLeftIcon className="h-6 w-6" />
-        <span className='font-bold '>Back</span>
+        <span className='font-bold '>Make Order</span>
       </div>
     <Stepper
     styleConfig={{ completedBgColor: '#00BFA5', activeBgColor: '#00BFA5', inactiveBgColor: 'zinc',}} steps={[{label: 'Sender'}, {label: 'Receiver'}, {label: 'Package'}, {label: 'Payment'}, {label: 'Finish'}]} activeStep={currentStep}   />

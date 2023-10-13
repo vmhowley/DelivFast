@@ -1,3 +1,4 @@
+
 import React from 'react'
 import facebookIcon from '../images/Facebook_icon.png'
 import googleIcon from '../images/google_icon.png'
@@ -12,7 +13,6 @@ import { getAuth,
 import { Navigate } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { FirebaseAuthentication } from '@robingenz/capacitor-firebase-authentication';
-import { auth } from '../firebase'
 
 
 
@@ -21,6 +21,7 @@ function LoginPortal({step, setStep}) {
     // 1. Create credentials on the native layer
     const result = await FirebaseAuthentication.signInWithGoogle();
     // 2. Sign in on the web layer using the id token
+    const auth = getAuth();
     const credential = GoogleAuthProvider.credential(result.credential?.idToken);
     await signInWithCredential(auth, credential);
     const name = result.user.displayName;
