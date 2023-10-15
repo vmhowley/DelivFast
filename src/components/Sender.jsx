@@ -1,13 +1,48 @@
 import React from 'react'
 import { useState } from 'react';
-
-
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
 
 function SenderInfo( {orderData, setOrderData}) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  } else {
+    console.log("Geolocation not supported");
+  }
   
+  function success(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    
+    
+    
+    
+    
+    localStorage.setItem('lat', position.coords.latitude);
+    localStorage.setItem('lng', position.coords.longitude);
+    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+  }
+  
+  function error() {
+    console.log("Unable to retrieve your location");
+  }
+  
+  
+  const latitude = localStorage.getItem('lat');
+  const longitude = localStorage.getItem('lng');
+  const lat = parseInt(latitude);
+  const lng = parseInt(longitude);
+  console.log(latitude, longitude);
+const MyMapComponent = withGoogleMap((props) =>
 
+  <GoogleMap
+    defaultZoom={8}
+    defaultCenter={{ lat: lat, lng: lng }}
+  >
   
+    {props.isMarkerShown && <Marker position={{ lat: lat, lng: lng }} />}
+  </GoogleMap>
+)
     return(
       
     <div className='flex p-4 justify-between content-center items-center' >
@@ -100,8 +135,12 @@ function SenderInfo( {orderData, setOrderData}) {
             onChange={(e) => setOrderData({...orderData, sender_address: e.target.value})}
           />
         </div>
-       
-
+        <MyMapComponent
+  isMarkerShown
+  loadingElement={<div style={{ height: `100%` }} />}
+  containerElement={<div style={{ height: `400px` }} />}
+  mapElement={<div style={{ height: `100%` }} />}
+/>
       </form>
     </div>
     </div>
