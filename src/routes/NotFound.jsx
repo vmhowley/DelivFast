@@ -1,5 +1,5 @@
 import React from 'react'
-
+import NotFoundLogo from '../images/Frame.png'
 const NotFound = () => {
   return (
 <>
@@ -8,7 +8,7 @@ const NotFound = () => {
         <div className="opacity-10 w-12 h-14 left-[257.37px] top-[83.10px] absolute">
         </div>
     </div>
-    <img src="..\src\images\Frame.png" alt="" />
+    <img src={NotFoundLogo} alt="" />
 
     <div className="self-stretch h-32 flex-col justify-start items-start gap-6 flex">
         <div className="self-stretch text-center  text-2xl font-bold font-['Urbanist'] leading-7">Not Found</div>

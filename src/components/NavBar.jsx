@@ -34,7 +34,7 @@ export default function NavBar() {
           </a>
         </li>
         <li className="hover:bg-emerald-400 hover:text-white rounded-md ">
-          <a className="flex flex-col content-center items-center justify-between " href="/">
+          <a className="flex flex-col content-center items-center justify-between " href="/profile">
             <UserCircleIcon className="h-6" />
             <span>Profile</span>
           </a>

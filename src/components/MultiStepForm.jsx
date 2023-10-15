@@ -9,14 +9,16 @@ import { set, ref, push } from "firebase/database";
 import { db } from "../firebase";
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 
+
+
 function  MultiStepForm () {
-  
-  
   const [orderData, setOrderData] = useState({
     title : "New Order Made",
     description : 'You have created a new shipping order'
     
   });
+
+  
   function getDate() {
     const today = new Date();
     const month = today.getMonth() + 1;
@@ -56,8 +58,7 @@ function  MultiStepForm () {
         + ":" + date1.getSeconds()
     orderData.date = date;
     orderData.time = showTime;
-    writeOrder(orderData)
-    alert('order Created' + getDate())
+    writeOrder(orderData);
     navigate("/");    
     
   };
@@ -74,8 +75,10 @@ function  MultiStepForm () {
 
   };
 
+  
   return (
     <> 
+        
           <div
         className="flex space-x-2 cursor-pointer font-bold relative  m-2"
         onClick={handleBack}
@@ -84,7 +87,7 @@ function  MultiStepForm () {
         <span className='font-bold '>Make Order</span>
       </div>
     <Stepper
-    styleConfig={{ completedBgColor: '#00BFA5', activeBgColor: '#00BFA5', inactiveBgColor: 'zinc',}} steps={[{label: 'Sender'}, {label: 'Receiver'}, {label: 'Package'}, {label: 'Payment'}, {label: 'Finish'}]} activeStep={currentStep}   />
+    styleConfig={{ completedBgColor: '#00BFA5', activeBgColor: '#00BFA5'}} steps={[{label: 'Sender'}, {label: 'Receiver'}, {label: 'Package'}, {label: 'Payment'}, {label: 'Finish'}]} activeStep={currentStep}   />
       <div className="p-4 mb-16 font-semibold">
         
         {step === 1 ? <Sender orderData={orderData} setOrderData={setOrderData}   /> : step === 2 ? <Receiver orderData={orderData} setOrderData={setOrderData} /> : step === 3 ? < PackageInfo orderData={orderData} setOrderData={setOrderData}/> : step == 4  ? < Payment orderData={orderData} setOrderData={setOrderData}/>: <ReviewSummary orderData={orderData} setOrderData={setOrderData} /> }
@@ -94,7 +97,7 @@ function  MultiStepForm () {
             <button
             className="btn bg-emerald-400 rounded-full w-96 h-14"
             value="Next"
-            onClick={step === 5 ?  handleComplete : handleNext}    
+            onClick={step === 5 ?   handleComplete : handleNext}    
             >
               {step === 5 ? "Confirm order" : "Continue"}
             </button>
@@ -107,8 +110,10 @@ function  MultiStepForm () {
   );
 }
 const ReviewSummary = ({orderData, setOrderData}) => {
+ 
   return (
     <>
+
     <div className="flex mb-2 font-light">
       <span className="text-lg">Review Summary</span>
     </div>
@@ -150,6 +155,8 @@ const ReviewSummary = ({orderData, setOrderData}) => {
       </div>
     </div>
     </div>
+   
+
 </>
   )
 }

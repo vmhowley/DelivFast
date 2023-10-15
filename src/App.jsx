@@ -9,6 +9,7 @@ import NotFound from './routes/NotFound'
 import Login from './routes/Login'
 import LoginPortal from './login/LoginPortal'
 import LoginWithPass from './login/LoginWithPassword'
+import Profile from './routes/Profile'
 import { App as CapacitorApp } from '@capacitor/app';
 
 import { useEffect } from "react";
@@ -28,6 +29,7 @@ function App() {
       <Route index element={<Home />} />
       <Route path="/login" element={<LoginPortal />} />
       <Route path="/loginwithPass" element={<LoginWithPass />} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="/create-order" element={<MakeOrder />} />
       <Route path="/transactions" element={<Transactions />} />
       <Route path="*" element={<NotFound />} />

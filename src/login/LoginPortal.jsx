@@ -4,9 +4,9 @@ import facebookIcon from '../images/Facebook_icon.png'
 import googleIcon from '../images/google_icon.png'
 import appleIcon from '../images/apple_icon.png'
 import Logo from '../images/logo.png/'
+import { auth } from '../firebase'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
-import { getAuth,
-  GoogleAuthProvider,
+import {  GoogleAuthProvider,
   OAuthProvider,
   PhoneAuthProvider,
   signInWithCredential,} from "firebase/auth";  
@@ -21,7 +21,7 @@ function LoginPortal({step, setStep}) {
     // 1. Create credentials on the native layer
     const result = await FirebaseAuthentication.signInWithGoogle();
     // 2. Sign in on the web layer using the id token
-    const auth = getAuth();
+    
     const credential = GoogleAuthProvider.credential(result.credential?.idToken);
     await signInWithCredential(auth, credential);
     const name = result.user.displayName;
@@ -86,4 +86,4 @@ function LoginPortal({step, setStep}) {
 }
 
 
-export default LoginPortal
+export default LoginPortal;

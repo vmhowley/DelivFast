@@ -5,10 +5,25 @@ export default function Ccard() {
    if(isFilled) {
     const cardName = localStorage.getItem('name')
     localStorage.setItem('cardName', ' VICTOR MORILLO')
+    localStorage.setItem('cardProvider', ' VICTOR MORILLO')
+    localStorage.setItem('accountBalance', ' 45,055')
   }
   return (
     <>
-    {isFilled ? cardFilled() : <div className="flex justify-center"><button className="btn">Add Card</button></div>}
+    {isFilled ? cardFilled() : <div className="mb-2 rounded-3xl ">
+      <div className="w-[22rem] h-52 m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-xl mb-5 mt-7 transform ">
+        <div className="w-full px-8 absolute top-8">
+          <div className="flex justify-center items-center content-center">
+            <div className="flex items-center content-center  justify-center">
+              <span className="font-bold text-2xl"><button className="btn">Add Card</button></span>
+              <p className="text-3xl">
+            </p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+}
     </>  
   );
 }
@@ -18,26 +33,22 @@ const cardFilled = () => {
   const lastNums = localStorage.getItem('lastNums');
   const cardProvider = localStorage.getItem('cardProvider');
   const accountBalance = localStorage.getItem('accountBalance');
-return (<div className="relative m-auto   mb-2 rounded-3xl">
-      <div className="w-96 h-52 m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-sm transition-transform transform hover:scale-110">
-        <div className="w-full px-8 absolute top-8">
-          <div className="flex justify-between">
-            <div className="grid gap-1">
-              <span className="font-bold text-2xl">{name}</span>
-              <p className="text-3xl">•••• •••• •••• 7895
-            </p>
-            </div>
-          </div>
-          <div className="pt-6 pr-6 flex justify-between items-center ">
-            <div className="grid gap-2">
-              <p className="font-semibold text-sm">Your Balance</p>
-              <span className="font-bold text-4xl text-white">$18,548</span>           
-            </div>
-            <img className="w-16 h-6" src={VisaLogo} />
-
-          </div>
+return (
+      <div className="justify-between w-[21rem] h-[11rem] m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-xl mb-5 mt-7 ">
+        <div className="flex flex-col relative">
+        <span className="relative left-6 top-6 font-semibold tracking-wider">{name}</span>
+        <span className="relative left-6 top-6 font-semibold tracking-widest">•••• •••• •••• {7895}</span>
+        </div>
+        <div className="flex justify-end  right-10 relative">
+         <img className="h-5" src={VisaLogo} alt="" />
+        </div>
+        <div className="relative top-8 left-6 grid ">
+          <span className="text-xs tracking-wider">Your Balance</span>
+          <span className="text-4xl tracking-wider font-bold">{accountBalance}</span>
+        </div>
+        <div className="flex justify-end relative right-6">
+          <button className="btn rounded-full bg-white text-emerald-400">Top Up</button>
         </div>
       </div>
-    </div>
 )
 }

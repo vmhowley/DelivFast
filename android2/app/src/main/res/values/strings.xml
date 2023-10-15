@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">delifast</string>
-    <string name="title_activity_main">delifast</string>
-    <string name="package_name">com.benito.delivfast</string>
-    <string name="custom_url_scheme">com.benito.delivfast</string>
-</resources>

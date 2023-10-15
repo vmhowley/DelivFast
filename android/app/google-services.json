@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "840374551208-ltpee9109d4atv1cs5v1r56set3r4m2l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.benito.delivfast",
+            "certificate_hash": "e9da5b13b9ca9384c85209435401963ef8683d6f"
+          }
+        },
+        {
           "client_id": "840374551208-as5nr80l64l3n3bkpb5uldhk0jeahqj8.apps.googleusercontent.com",
           "client_type": 3
         }
