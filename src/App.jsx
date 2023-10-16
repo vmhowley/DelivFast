@@ -63,7 +63,7 @@ import {
     
   .then(({ results }) => {
     const { lat, lng } = results[0].geometry.location;
-    localStorage.setItem('address', results[0]);
+    localStorage.setItem('address', results[0].formatted_address);
   })
   }
   
