@@ -4,34 +4,16 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-map
 
 
 function SenderInfo( {orderData, setOrderData}) {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(success, error);
-  } else {
-    console.log("Geolocation not supported");
-  }
-  
-  function success(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    
-    
-    
-    
-    
-    localStorage.setItem('lat', position.coords.latitude);
-    localStorage.setItem('lng', position.coords.longitude);
-    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-  }
-  
-  function error() {
-    console.log("Unable to retrieve your location");
-  }
-  
-  
   const latitude = localStorage.getItem('lat');
   const longitude = localStorage.getItem('lng');
+  const accuracy = localStorage.getItem('acc');
+  const altitudeAccuracy = localStorage.getItem('aac');
+  const altitude = localStorage.getItem('alt');
   const lat = parseInt(latitude);
   const lng = parseInt(longitude);
+  const acc = parseInt(accuracy);
+  const aac = parseInt(altitudeAccuracy);
+  const alt = parseInt(altitude);
   console.log(latitude, longitude);
 const MyMapComponent = withGoogleMap((props) =>
 
@@ -40,7 +22,7 @@ const MyMapComponent = withGoogleMap((props) =>
     defaultCenter={{ lat: lat, lng: lng }}
   >
   
-    {props.isMarkerShown && <Marker position={{ lat: lat, lng: lng }} />}
+    {props.isMarkerShown && <Marker position={{ lat: lat, lng: lng, accuracy: accuracy, altitudeAccuracy: altitudeAccuracy, altitude: altitude }} />}
   </GoogleMap>
 )
     return(

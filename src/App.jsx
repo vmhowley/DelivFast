@@ -11,7 +11,17 @@ import LoginPortal from './login/LoginPortal'
 import LoginWithPass from './login/LoginWithPassword'
 import Profile from './routes/Profile'
 import { App as CapacitorApp } from '@capacitor/app';
+import { Geolocation } from '@capacitor/geolocation';
 
+const printCurrentPosition = async () => {
+  const coordinates = await Geolocation.getCurrentPosition();
+  localStorage.setItem('lat', coordinates.coords.latitude)
+  localStorage.setItem('lng', coordinates.coords.longitude)
+  localStorage.setItem('acc', coordinates.coords.accuracy)
+  localStorage.setItem('aac', coordinates.coords.altitudeAccuracy)
+  localStorage.setItem('alt', coordinates.coords.altitude)
+  console.log('Current position:', coordinates);
+};
 import { useEffect } from "react";
 
 function App() {
@@ -22,6 +32,10 @@ function App() {
       window.history.back();
     }
   });
+
+
+  printCurrentPosition();
+
   return (
 
     <BrowserRouter>

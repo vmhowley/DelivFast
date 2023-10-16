@@ -1245,6 +1245,11 @@
   dependencies:
     tslib "^2.1.0"
 
+"@capacitor/geolocation@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.npmjs.org/@capacitor/geolocation/-/geolocation-5.0.6.tgz"
+  integrity sha512-3pB3CBa38aDMk7zouGbjOMBytcaqRMBosMcqNrOQjE5LMBAPUI1cEGrUzmkj+scP0SIyYGA95Tkj0BAnzvNWag==
+
 "@capacitor/ios@^5.5.0":
   version "5.5.0"
   resolved "https://registry.npmjs.org/@capacitor/ios/-/ios-5.5.0.tgz"
