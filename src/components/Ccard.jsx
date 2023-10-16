@@ -34,7 +34,7 @@ const cardFilled = () => {
   const cardProvider = localStorage.getItem('cardProvider');
   const accountBalance = localStorage.getItem('accountBalance');
 return (
-      <div className="justify-between w-[21rem] h-[11rem] m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-xl mb-5 mt-7 ">
+      <div className="justify-between w-[21rem] h-[11rem] md:m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-xl mb-5 mt-7 ">
         <div className="flex flex-col relative">
         <span className="relative left-6 top-6 font-semibold tracking-wider">{name}</span>
         <span className="relative left-6 top-6 font-semibold tracking-widest">•••• •••• •••• {7895}</span>

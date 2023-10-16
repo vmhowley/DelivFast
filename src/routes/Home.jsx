@@ -28,7 +28,10 @@ const  Home = () => {
   return (
     <div className="mt-[70px] mb-20">
       <Mnav />
+      <div className="">
+
       <Ccard />
+      </div>
       <Search />
       <Hero />
       <TransactionHist />
