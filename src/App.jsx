@@ -12,20 +12,24 @@ import LoginWithPass from './login/LoginWithPassword'
 import Profile from './routes/Profile'
 import { App as CapacitorApp } from '@capacitor/app';
 import { Geolocation } from '@capacitor/geolocation';
+import {
+  setKey,
+  setDefaults,
+  setLanguage,
+  setRegion,
+  fromAddress,
+  fromLatLng,
+  fromPlaceId,
+  setLocationType,
+  geocode,
+  RequestType,
+} from "react-geocode";
 
-const printCurrentPosition = async () => {
-  const coordinates = await Geolocation.getCurrentPosition();
-  localStorage.setItem('lat', coordinates.coords.latitude)
-  localStorage.setItem('lng', coordinates.coords.longitude)
-  localStorage.setItem('acc', coordinates.coords.accuracy)
-  localStorage.setItem('aac', coordinates.coords.altitudeAccuracy)
-  localStorage.setItem('alt', coordinates.coords.altitude)
-  console.log('Current position:', coordinates);
-};
-import { useEffect } from "react";
+  
 
-function App() {
-  CapacitorApp.addListener('backButton', ({canGoBack}) => {
+  
+  function App() {
+    CapacitorApp.addListener('backButton', ({canGoBack}) => {
     if(!canGoBack){
       CapacitorApp.exitApp();
     } else {
@@ -33,8 +37,43 @@ function App() {
     }
   });
 
+  
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
+  
+  function success(pos) {
+    const crd = pos.coords;
+    const lat = crd.latitude;
+    const lng = crd.longitude;
+    console.log("Your current position is:");
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+    setKey("AIzaSyCx0wq_NY0cy99XoWDBtiSR-VAUm3dUmWI");
+  fromLatLng(lat, lng)
+  .then(({ results }) => {
+    localStorage.setItem('address', results[0].formatted_address);
+    console.log(results[0].formatted_address);
+  })
+  .catch(console.error);
+    fromLatLng(lat, lng)
+    
+  .then(({ results }) => {
+    const { lat, lng } = results[0].geometry.location;
+    localStorage.setItem('address', results[0]);
+  })
+  }
+  
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
 
-  printCurrentPosition();
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
+
 
   return (
 
@@ -52,6 +91,6 @@ function App() {
     
     )
     
-}
-
-export default App
+  }
+  
+  export default App

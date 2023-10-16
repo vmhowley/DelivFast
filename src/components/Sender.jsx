@@ -9,22 +9,21 @@ function SenderInfo( {orderData, setOrderData}) {
   const accuracy = localStorage.getItem('acc');
   const altitudeAccuracy = localStorage.getItem('aac');
   const altitude = localStorage.getItem('alt');
-  const lat = parseInt(latitude);
-  const lng = parseInt(longitude);
-  const acc = parseInt(accuracy);
-  const aac = parseInt(altitudeAccuracy);
-  const alt = parseInt(altitude);
-  console.log(latitude, longitude);
-const MyMapComponent = withGoogleMap((props) =>
+  const lat = parseFloat(latitude);
+  const lng = parseFloat(longitude);
+  console.log(lat, lng);
 
-  <GoogleMap
-    defaultZoom={8}
-    defaultCenter={{ lat: lat, lng: lng }}
-  >
+  const MyMapComponent = withGoogleMap(props =>
+    <GoogleMap
+      defaultZoom={15}
+      defaultCenter={{ lat: lat, lng: lng }}
+    >
+      <Marker
+        position={{ lat: lat, lng: lng }}
+      />
+    </GoogleMap>
+  );
   
-    {props.isMarkerShown && <Marker position={{ lat: lat, lng: lng, accuracy: accuracy, altitudeAccuracy: altitudeAccuracy, altitude: altitude }} />}
-  </GoogleMap>
-)
     return(
       
     <div className='flex p-4 justify-between content-center items-center' >
@@ -113,15 +112,15 @@ const MyMapComponent = withGoogleMap((props) =>
             name='address'
             type="text"
             placeholder="Address"
-            value={orderData.sender_address}
-            onChange={(e) => setOrderData({...orderData, sender_address: e.target.value})}
+            value={localStorage.getItem('address')}
+            
           />
         </div>
+        
         <MyMapComponent
-  isMarkerShown
-  loadingElement={<div style={{ height: `100%` }} />}
-  containerElement={<div style={{ height: `400px` }} />}
-  mapElement={<div style={{ height: `100%` }} />}
+        loadingElement={<div style={{ height: `100%` }} />}
+        containerElement={<div style={{ height: `400px` }} />}
+        mapElement={<div style={{ height: `100%` }} />}
 />
       </form>
     </div>
