@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
-
+import { withGoogleMap, GoogleMap, Marker,  } from "react-google-maps"
 
 function SenderInfo( {orderData, setOrderData}) {
+  
   const latitude = localStorage.getItem('lat');
   const longitude = localStorage.getItem('lng');
   const accuracy = localStorage.getItem('acc');
@@ -11,16 +11,23 @@ function SenderInfo( {orderData, setOrderData}) {
   const altitude = localStorage.getItem('alt');
   const lat = parseFloat(latitude);
   const lng = parseFloat(longitude);
-  console.log(lat, lng);
+  var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
   const MyMapComponent = withGoogleMap(props =>
+    
     <GoogleMap
       defaultZoom={15}
       defaultCenter={{ lat: lat, lng: lng }}
+      mapTypeId= {'terrain'}
     >
-      <Marker
+      
+     
+     {props.isMarkerShown &&  <Marker
+        map= {GoogleMap}
+        icon={'https://cdn4.iconfinder.com/data/icons/location-45/68/pin_map_box_package-45.png'}
         position={{ lat: lat, lng: lng }}
-      />
+      />}
+      
     </GoogleMap>
   );
   
@@ -115,14 +122,17 @@ function SenderInfo( {orderData, setOrderData}) {
             value={localStorage.getItem('address')}
             
           />
-        </div>
         
+        </div>
+        </form>
+
         <MyMapComponent
+        
+        isMarkerShown={true}
         loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `400px` }} />}
+        containerElement={<div style={{  height: `600px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
 />
-      </form>
     </div>
     </div>
     )

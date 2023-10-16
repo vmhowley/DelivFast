@@ -20,6 +20,7 @@
     "@capacitor/geolocation": "^5.0.6",
     "@capacitor/ios": "^5.5.0",
     "@capacitor/push-notifications": "^5.1.0",
+    "@googlemaps/react-wrapper": "^1.1.35",
     "@heroicons/react": "^2.0.18",
     "@robingenz/capacitor-firebase-authentication": "^0.4.3",
     "cordova-plugin-file": "^8.0.0",
