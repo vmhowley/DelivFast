@@ -11,7 +11,9 @@ export default function Ccard() {
   return (
     <>
     {isFilled ? cardFilled() : <div className="mb-2 rounded-3xl ">
-      <div className="w-[22rem] h-52 m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-xl mb-5 mt-7 transform ">
+    <div className="flex justify-center">
+
+      <div className="w-[20rem] h-28 m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-xl mb-5 mt-7 transform ">
         <div className="w-full px-8 absolute top-8">
           <div className="flex justify-center items-center content-center">
             <div className="flex items-center content-center  justify-center">
@@ -22,6 +24,7 @@ export default function Ccard() {
           </div>
           </div>
         </div>
+      </div>
       </div>
 }
     </>  
@@ -34,7 +37,8 @@ const cardFilled = () => {
   const cardProvider = localStorage.getItem('cardProvider');
   const accountBalance = localStorage.getItem('accountBalance');
 return (
-      <div className="justify-between w-[21rem] h-[11rem] md:m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-xl mb-5 mt-7 ">
+  <div className="flex justify-center">
+      <div className="w-[21rem] h-[11rem] md:m-auto bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-xl mb-5 mt-7 ">
         <div className="flex flex-col relative">
         <span className="relative left-6 top-6 font-semibold tracking-wider">{name}</span>
         <span className="relative left-6 top-6 font-semibold tracking-widest">•••• •••• •••• {7895}</span>
@@ -50,5 +54,6 @@ return (
           <button className="btn rounded-full bg-white text-emerald-400">Top Up</button>
         </div>
       </div>
+  </div>
 )
 }

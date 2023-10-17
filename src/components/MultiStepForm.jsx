@@ -12,9 +12,41 @@ import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 
 
 function  MultiStepForm () {
+
+
+
+  function validateForm() {
+    // Check if the First Name is an Empty string or not.
+
+    if (orderData.sender_name == undefined || orderData.sender_name == '') {
+      alert('Invalid Form, First Name can not be empty')
+      return
+    }else if (orderData.sender_phone == undefined || orderData.sender_phone == '') {
+        alert('Invalid Form, Phone Number can not be empty')
+        return
+      }else if (orderData.sender_email == undefined || orderData.sender_email == '') {
+        alert('Invalid Form, Email  can not be empty')
+        return
+      }else if (orderData.sender_city == undefined || orderData.sender_city == '') {
+        alert('Invalid Form, city can not be empty')
+        return
+      }else if (orderData.sender_address == undefined || orderData.sender_address == '') {
+        alert('Invalid Form, address  can not be empty')
+        return
+    }else{
+      handleNext()
+    }
+    
+    // if all the conditions are valid, this means that the form is valid
+
+    console.log('Form is valid')
+  }
+
   const [orderData, setOrderData] = useState({
     title : "New Order Made",
-    description : 'You have created a new shipping order'
+    description : 'You have created a new shipping order',
+    sender_address : localStorage.getItem('sender_address'),
+    receiver_address : localStorage.getItem('receiver_address')
     
   });
 
@@ -43,7 +75,6 @@ function  MultiStepForm () {
   const [currentStep, setCurrentStep] = useState(0);
   
   const handleNext = () => {
-    
     setStep(step + 1);
     setCurrentStep(currentStep+ 1);
     console.log(orderData);
@@ -97,7 +128,7 @@ function  MultiStepForm () {
             <button
             className="btn bg-emerald-400 rounded-full w-96 h-14"
             value="Next"
-            onClick={step === 5 ?   handleComplete : handleNext}    
+            onClick={step === 5 ?   handleComplete : validateForm}    
             >
               {step === 5 ? "Confirm order" : "Continue"}
             </button>

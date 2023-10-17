@@ -1,3 +1,0 @@
-com.benito.delivfast.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

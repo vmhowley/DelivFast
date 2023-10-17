@@ -55,7 +55,7 @@ import {
     setKey("AIzaSyCx0wq_NY0cy99XoWDBtiSR-VAUm3dUmWI");
   fromLatLng(lat, lng)
   .then(({ results }) => {
-    localStorage.setItem('address', results[0].formatted_address);
+    localStorage.setItem('sender_address', results[0].formatted_address);
     console.log(results[0].formatted_address);
   })
   .catch(console.error);

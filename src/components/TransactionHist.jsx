@@ -34,7 +34,6 @@ export default function TransactionHist() {
       <span className="flex justify-center text-red-600 text-lg">You don't have any transactions</span>       
       </> 
     }else{
-      console.log(window.location.pathname)
       return (
         <>
       <div className="text-black font-semibold dark:text-white  divide-y divide-slate-400/30 grid w-max m-auto mt-4">
@@ -47,35 +46,44 @@ export default function TransactionHist() {
           
           <div
           key={index}
-          className="flex flex-row justify-between  mb-2 items-center content-center"
+          className=" flex flex-row mb-2 items-center justify-around "
           >
             <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
               <TruckIcon  className="h-6 w-6 text-emerald-400" />
             </div>
-            <div className="grid  gap-2 p-2">
-              <span className="">{order.orderData.title}</span>
-              <p className="text-xs text-zinc-500 dark:text-zinc-300 relative w-52">
-                {order.orderData.description } 
+            <div className="flex flex-col gap-2 text-center w-52 ">
+              <span className="tracking-wider">
+                {order.orderData.title}
+              </span>
+              <p className="text-xs  text-zinc-500 dark:text-zinc-300 ">
+                {order.orderData.description}
               </p>
-            </div>
-            <a className="text-emerald-400 "><TimeAgo  locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
+              <p className="text-xs text-zinc-500 dark:text-zinc-300 ">
+                {order.orderData.receiver_address}
+              </p>
+            </div> 
+            <a className="text-emerald-400 text-xs "><TimeAgo  locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
           </div>
         )) : orders.slice(0).reverse().slice(0, 3).map((order, index) => (
           <div
           key={index}
-          className="flex flex-row justify-between  mb-2 items-center content-center "
+          className=" flex flex-row mb-2 items-center justify-around "
           >
             <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
               <TruckIcon  className="h-6 w-6 text-emerald-400" />
             </div>
-            <div className="grid grid-cols-1 gap-2 p-2">
-              <span className="">{order.orderData.title}</span>
-              <p className="text-xs flex flex-wrap flex-row-reverse text-zinc-500 dark:text-zinc-300 ">
+            <div className="flex flex-col gap-2 text-center w-52 ">
+              <span className="tracking-wider">
+                {order.orderData.title}
+              </span>
+              <p className="text-xs  text-zinc-500 dark:text-zinc-300 ">
                 {order.orderData.description}
-              <br/>
               </p>
-            </div>
-            <a className="text-emerald-400 "><TimeAgo minPeriod={60} locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
+              <p className="text-xs text-zinc-500 dark:text-zinc-300 ">
+                {order.orderData.receiver_address}
+              </p>
+            </div> 
+            <a className="text-emerald-400 text-xs "><TimeAgo  locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
           </div>
         )) }
       </div>

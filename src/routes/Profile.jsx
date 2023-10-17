@@ -5,13 +5,14 @@ import { db } from "../firebase";
 export default function Profile() {
     
     const [profileData, setProfileData] = useState({
-        name:'benitxto'
+      name: localStorage.getItem('name'),
+      pic:  localStorage.getItem('profilePic')
     })
     const name = localStorage.getItem('name')
 
     const writeProfile = (profileData) => {
         const uid = localStorage.getItem('uid')
-        set(ref(db, 'users/' + uid + '/profile'), {
+        set(ref(db, 'users/' + uid + '/profile/'), {
           profileData
         });
       }
@@ -27,7 +28,7 @@ export default function Profile() {
         <span className="font-bold ">Back</span>
       </div>
       <div className='flex justify-center'>
-        <img className='rounded-full w-32' src="http://unavatar.io/benitoxx25" alt="asd" />
+        <img className='rounded-full w-32' src={profileData.pic} alt="asd" />
       </div>
       <div>
       <div className="mb-4">
@@ -44,7 +45,7 @@ export default function Profile() {
             name='name'
             type="text"
             placeholder="Full Name"
-            value={name}
+            value={profileData.name}
             onChange={(e) => setProfileData({...profileData, name: e.target.value})}
           />
         </div>
