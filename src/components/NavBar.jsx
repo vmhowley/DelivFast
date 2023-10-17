@@ -1,7 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Link } from "react-router-dom";
 //Libredia de iconos
-import { HomeIcon, ChatBubbleLeftEllipsisIcon, ShoppingCartIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { HomeIcon,
+        ChatBubbleLeftEllipsisIcon,
+        ShoppingCartIcon,
+        UserCircleIcon } from "@heroicons/react/24/outline";
 
 
 export default function NavBar() {
@@ -12,35 +16,25 @@ export default function NavBar() {
   ];
 
   return (
-<div className="fixed  bottom-0  w-full text-emerald-400  font-semibold bg-white dark:bg-zinc-900   backdrop-blur-md text-xs ">
-      <div>
-      <ul className="flex justify-around content-center items-center p-2 ">
-        <li className="hover:bg-emerald-400 hover:text-white rounded-md">
-          <a className="flex flex-col content-center items-center justify-between " href="/">
+<div className="fixed flex justify-center justify-around text-center content-center bottom-0  w-full text-emerald-400  font-semibold bg-white dark:bg-zinc-900   backdrop-blur-md text-xs ">
+        <Link className="flex flex-col content-center items-center justify-between" to="/">
             <HomeIcon className="h-6" />
-            <span className="" >Home</span>
-          </a>
-        </li>
-        <li className="hover:bg-emerald-400 hover:text-white rounded-md ">
-          <a className="flex flex-col content-center items-center justify-between " href="/orders">
+            Home
+          </Link>
+          <Link to="orders" className="flex flex-col content-center items-center justify-between">
             <ShoppingCartIcon className="h-6" />
-            <span>My Orders</span>
-          </a>
-        </li>
-        <li className="hover:bg-emerald-400 hover:text-white rounded-md ">
-          <a className="flex flex-col content-center items-center justify-between " href="/">
+            My Orders
+        </Link>
+          <Link to="inbox" className="flex flex-col content-center items-center justify-between">
             <ChatBubbleLeftEllipsisIcon className="h-6" />
-            <span>inbox</span>
-          </a>
-        </li>
-        <li className="hover:bg-emerald-400 hover:text-white rounded-md ">
-          <a className="flex flex-col content-center items-center justify-between " href="/profile">
+            Inbox
+        </Link>
+          <Link to="profile" className="flex flex-col content-center items-center justify-between">
             <UserCircleIcon className="h-6" />
-            <span>Profile</span>
-          </a>
-        </li>
-      </ul>
-      </div>
+            Profile
+        </Link>
+         
+     
 </div>
   );
 }

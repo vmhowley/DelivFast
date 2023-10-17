@@ -77,7 +77,6 @@ import {
 
   return (
 
-    <BrowserRouter>
     <Routes>
       <Route index element={<Home />} />
       <Route path="/login" element={<LoginPortal />} />
@@ -87,7 +86,6 @@ import {
       <Route path="/transactions" element={<Transactions />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-    </BrowserRouter>
     
     )
     
