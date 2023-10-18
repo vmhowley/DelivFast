@@ -3,6 +3,7 @@ import {  TruckIcon } from '@heroicons/react/24/solid';
 import { db } from "../firebase";
 import { ref, onValue } from "firebase/database";
 import TimeAgo from 'timeago-react';
+import { Link } from "react-router-dom";
 
 
 export default function TransactionHist() {
@@ -39,8 +40,12 @@ export default function TransactionHist() {
       <div className="text-black font-semibold dark:text-white  divide-y divide-slate-400/30 grid w-max m-auto mt-4">
         <div className="flex justify-between w-96 items-center mb-4 text-emerald-400 ">
           <span className="font-bold text-xl">Transaction History</span>
+          
           {window.location.pathname == '/' ? 
-          <a className="font-bold" href="/transactions">See All </a> : ''}
+            <Link to='/transactions' className="cursor-pointer"> See All  </Link> 
+            
+            : ''}
+          
         </div>
         {window.location.pathname== '/transactions' ? orders.slice(0).reverse().map((order, index) => (
           
