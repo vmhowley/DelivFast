@@ -48,6 +48,8 @@ import {
     const crd = pos.coords;
     const lat = crd.latitude;
     const lng = crd.longitude;
+    localStorage.setItem('lat', lat);
+    localStorage.setItem('lng', lng);
     console.log("Your current position is:");
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude: ${crd.longitude}`);
