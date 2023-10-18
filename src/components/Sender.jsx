@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { withGoogleMap, GoogleMap, Marker,  } from "react-google-maps"
+import { withGoogleMap, GoogleMap, Marker, withScriptjs  } from "react-google-maps"
 
 function SenderInfo( {orderData, setOrderData}) {
   
@@ -123,7 +123,7 @@ function SenderInfo( {orderData, setOrderData}) {
   const lng = parseFloat(longitude);
   var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
-  const MyMapComponent = withGoogleMap(props =>
+  const MyMapComponent = withScriptjs(withGoogleMap(props =>
     
     <GoogleMap
       defaultZoom={15}
@@ -139,7 +139,7 @@ function SenderInfo( {orderData, setOrderData}) {
       />}
       
     </GoogleMap>
-  );
+  ));
   
     return(
       
@@ -239,10 +239,10 @@ function SenderInfo( {orderData, setOrderData}) {
         </form>
 
         <MyMapComponent
-        
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx0wq_NY0cy99XoWDBtiSR-VAUm3dUmWI"
         isMarkerShown={true}
         loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{  height: `600px` }} />}
+        containerElement={<div style={{  height: `300px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
 />
     </div>

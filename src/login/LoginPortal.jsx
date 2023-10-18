@@ -3,7 +3,7 @@ import React from 'react'
 import facebookIcon from '../images/Facebook_icon.png'
 import googleIcon from '../images/google_icon.png'
 import appleIcon from '../images/apple_icon.png'
-import Logo from '../images/logo.png/'
+import Logo from '../images/delivery.png/'
 import { auth } from '../firebase'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 import {  GoogleAuthProvider,
@@ -57,7 +57,7 @@ function LoginPortal({step, setStep}) {
       </div>
       <div className="grid place-content-center place-items-center mt-10 gap-20">
         <div className="grid place-content-center place-items-center">
-          <img src={Logo} alt="image" className="h-40 rounded-full" />
+          <img src={Logo} alt="image" className=" rounded-md" />
           <span className="font-bold text-6xl">Let&apos;s you in</span>
         </div>
         <div className="grid gap-4 place-content-center">

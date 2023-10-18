@@ -51,7 +51,7 @@ export default function TransactionHist() {
           
           <div
           key={index}
-          className=" flex flex-row mb-2 items-center justify-around "
+          className=" flex flex-row mb-2 items-center justify-around animate-pulse"
           >
             <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
               <TruckIcon  className="h-6 w-6 text-emerald-400" />
@@ -72,7 +72,7 @@ export default function TransactionHist() {
         )) : orders.slice(0).reverse().slice(0, 3).map((order, index) => (
           <div
           key={index}
-          className=" flex flex-row mb-2 items-center justify-around "
+          className=" flex flex-row mb-2 items-center justify-around  "
           >
             <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
               <TruckIcon  className="h-6 w-6 text-emerald-400" />
