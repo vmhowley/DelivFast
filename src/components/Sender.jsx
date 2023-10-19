@@ -3,20 +3,6 @@ import { useState } from 'react';
 import Map from './map';
 
 function SenderInfo( {orderData, setOrderData}) {
-  
- 
-  function validateForm() {
-    // Check if the First Name is an Empty string or not.
-
-    if (orderData.sender_name.length == 0) {
-      alert('Invalid Form, First Name can not be empty')
-      return
-    }
-
-
-    alert('Form is valid')
-  }
- 
  
     return(
       

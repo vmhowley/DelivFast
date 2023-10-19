@@ -14,15 +14,8 @@ import { App as CapacitorApp } from '@capacitor/app';
 import { Geolocation } from '@capacitor/geolocation';
 import {
   setKey,
-  setDefaults,
-  setLanguage,
-  setRegion,
   fromAddress,
   fromLatLng,
-  fromPlaceId,
-  setLocationType,
-  geocode,
-  RequestType,
 } from "react-geocode";
 
   
@@ -62,11 +55,6 @@ import {
   })
   .catch(console.error);
     fromLatLng(lat, lng)
-    
-  .then(({ results }) => {
-    const { lat, lng } = results[0].geometry.location;
-    localStorage.setItem('address', results[0].formatted_address);
-  })
   }
   
   function error(err) {
@@ -74,7 +62,7 @@ import {
   }
 
 
-  navigator.geolocation.getCurrentPosition(success, error, options);
+  navigator.geolocation.watchPosition(success, error, options);
 
 
   return (

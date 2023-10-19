@@ -2,7 +2,12 @@ import React from "react"
 import { compose, withProps } from "recompose"
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
+
+
+const lat = parseFloat(localStorage.getItem('lat'));
+const lng = parseFloat(localStorage.getItem('lng'));
 const MyMapComponent = compose(
+  
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCx0wq_NY0cy99XoWDBtiSR-VAUm3dUmWI&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
@@ -13,10 +18,10 @@ const MyMapComponent = compose(
   withGoogleMap
 )((props) =>
   <GoogleMap
-    defaultZoom={20}
-    defaultCenter={{ lat: 18.4760456, lng: -69.9431112 }}
+    defaultZoom={13}
+    defaultCenter={{ lat: lat, lng: lng }}
   >
-    {props.isMarkerShown && <Marker position={{ lat: 18.4760456, lng: -69.9431112 }} onClick={props.onMarkerClick} />}
+    {props.isMarkerShown && <Marker position={{ lat: lat, lng: lng }} />}
   </GoogleMap>
 )
 
@@ -43,11 +48,11 @@ class MyFancyComponent extends React.PureComponent {
   render() {
     return (
       <MyMapComponent
-        isMarkerShown={this.isMarkerShown} 
+        isMarkerShown
         onMarkerClick={this.handleMarkerClick}
       />
     )
   }
 }
 
-export default MyMapComponent;
+export default MyFancyComponent;
