@@ -47,7 +47,7 @@ export default function TransactionHist() {
             : ''}
           
         </div>
-        {window.location.pathname== '/transactions' ? orders.slice(0).reverse().map((order, index) => (
+        {window.location.pathname == '/transactions' ? orders.slice(0).reverse().map((order, index) => (
           
           <div
           key={index}
