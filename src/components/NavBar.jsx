@@ -16,7 +16,7 @@ export default function NavBar() {
   ];
 
   return (
-<div className="fixed flex justify-center justify-around text-center content-center bottom-0  w-full text-emerald-400  font-semibold bg-white dark:bg-zinc-900   backdrop-blur-md text-xs ">
+<div className="fixed flex  justify-around text-center content-center bottom-0  w-full text-emerald-400  font-semibold bg-white dark:bg-zinc-900   backdrop-blur-md text-xs ">
         <Link className="flex flex-col content-center items-center justify-between" to="/">
             <HomeIcon className="h-6" />
             Home

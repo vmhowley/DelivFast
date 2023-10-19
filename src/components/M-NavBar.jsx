@@ -9,7 +9,7 @@ export default function Mnav() {
   const profilePic = localStorage.getItem('profilePic');
   
   return (
-    <div className="  bg-white dark:bg-zinc-800   justify-between items-center flex absolute top-0 z-50 w-full  ">
+    <div className="  bg-white dark:bg-zinc-800   justify-between items-center flex fixed top-0 z-50 w-full  ">
       <div className="justify-start items-center gap-4 flex p-2">
         <img
           className="w-[49px] h-[49px] rounded-[56px] border border-white border-opacity-30"
