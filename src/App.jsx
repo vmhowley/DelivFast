@@ -18,7 +18,7 @@ import {
   fromLatLng,
 } from "react-geocode";
 
-  
+import NotificationReq from './NotificationReq'  
 
   
   function App() {
@@ -30,7 +30,6 @@ import {
     }
   });
 
-  
   const options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -76,9 +75,8 @@ import {
       <Route path="/transactions" element={<Transactions />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-    
-    )
-    
-  }
+  )
+   } 
+
   
   export default App

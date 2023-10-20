@@ -62,11 +62,8 @@ function  MultiStepForm () {
   const writeOrder = (orderData) => {
     const uid = localStorage.getItem('uid')
     const orderListRef = ref(db, 'users/' + uid +'/orders')
-    const newOrderRef  = push(orderListRef)
-    set( newOrderRef , { 
-      orderData
-    });
-  }
+    push(orderListRef, orderData);
+   }
   
   
   const navigate = useNavigate();

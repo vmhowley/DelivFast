@@ -8,18 +8,26 @@ import { Link } from "react-router-dom";
 
 export default function TransactionHist() {
   const [orders, setOrder] = useState([]);
+  const [Keys, setKeys] = useState([]);
   
   useEffect(() => {
     const uid = localStorage.getItem('uid')
     const query = ref(db, "users/" + uid + '/orders' );
     return onValue(query, (snapshot) => {
       const data = snapshot.val();
-
+    
       if (snapshot.exists()) {
-        Object.values(data).map((order) => {
+        Object.entries(data).map((order) => {
           setOrder((orders) => [...orders, order]);
+          console.log(order[1])
+            
         });
+        Object.keys(data).map((Key) => {
+          setKeys((Keys) => [...Keys, Key]);
+          
+        })
       }
+      
     });
   }, []);
 
@@ -58,16 +66,16 @@ export default function TransactionHist() {
             </div>
             <div className="flex flex-col gap-2 text-center w-52 ">
               <span className="tracking-wider">
-                {order.orderData.title}
+                {order.title}
               </span>
               <p className="text-xs  text-zinc-500 dark:text-zinc-300 ">
-                {order.orderData.description}
+                {order.description}
               </p>
               <p className="text-xs text-zinc-500 dark:text-zinc-300 ">
-                {order.orderData.receiver_address}
+                {order.receiver_address}
               </p>
             </div> 
-            <a className="text-emerald-400 text-xs "><TimeAgo  locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
+            <a className="text-emerald-400 text-xs "><TimeAgo  locale='en' datetime={order.date + ' ' + order.time}/> </a>
           </div>
         )) : orders.slice(0).reverse().slice(0, 3).map((order, index) => (
           <div
@@ -79,16 +87,17 @@ export default function TransactionHist() {
             </div>
             <div className="flex flex-col gap-2 text-center w-52 ">
               <span className="tracking-wider">
-                {order.orderData.title}
+                {order[1].title}
               </span>
               <p className="text-xs  text-zinc-500 dark:text-zinc-300 ">
-                {order.orderData.description}
+                {order[1].description}
               </p>
-              <p className="text-xs text-zinc-500 dark:text-zinc-300 ">
-                {order.orderData.receiver_address}
-              </p>
+
+              <p className="text-xs text-zinc-500 dark:text-zinc-300">
+                TRACK ID:  {order[0]}
+                </p>
             </div> 
-            <a className="text-emerald-400 text-xs "><TimeAgo  locale='en' datetime={order.orderData.date + ' ' + order.orderData.time}/> </a>
+            <a className="text-emerald-400 text-xs "><TimeAgo  locale='en' datetime={order[1].date + ' ' + order[1].time}/> </a>
           </div>
         )) }
       </div>

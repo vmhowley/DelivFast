@@ -2,6 +2,9 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth";
+import { getMessaging, getToken  } from "firebase/messaging";
+
+
 import React, { useEffect } from 'react';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -24,7 +27,8 @@ const app = initializeApp(firebaseConfig);
 
 
 export const auth = getAuth();
-
+export const messaging = getMessaging(app);
 export const db = getDatabase(app);
+export const currentToken = getToken(messaging, {vapid: 'BBgVBD8skrtlHgtBIzlWD4j6D1Ey8fPrr9s6RdiVPE1bLgr2ERBaqiie-h0DoYXEJtN1l8zWxDjCJ8FRGtFewMM'});
 
 //sign with google popup
