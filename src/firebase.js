@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged  } from "firebase/auth";
 import { getMessaging, getToken  } from "firebase/messaging";
 
 
@@ -24,11 +24,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-
 export const auth = getAuth();
+export const user = auth.currentUser;
 export const messaging = getMessaging(app);
-export const db = getDatabase(app);
 export const currentToken = getToken(messaging, {vapid: 'BBgVBD8skrtlHgtBIzlWD4j6D1Ey8fPrr9s6RdiVPE1bLgr2ERBaqiie-h0DoYXEJtN1l8zWxDjCJ8FRGtFewMM'});
+export const db = getDatabase(app);
 
 //sign with google popup

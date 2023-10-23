@@ -37,9 +37,7 @@ function  MultiStepForm () {
       handleNext()
     }
     
-    // if all the conditions are valid, this means that the form is valid
-
-    console.log('Form is valid')
+    // if all the conditions are valid, this means that the form is va
   }
 
   const [orderData, setOrderData] = useState({
@@ -74,7 +72,6 @@ function  MultiStepForm () {
   const handleNext = () => {
     setStep(step + 1);
     setCurrentStep(currentStep+ 1);
-    console.log(orderData);
   };
   
   

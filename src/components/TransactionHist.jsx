@@ -19,7 +19,6 @@ export default function TransactionHist() {
       if (snapshot.exists()) {
         Object.entries(data).map((order) => {
           setOrder((orders) => [...orders, order]);
-          console.log(order[1])
             
         });
         Object.keys(data).map((Key) => {

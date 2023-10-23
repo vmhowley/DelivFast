@@ -17,9 +17,8 @@ import {
   fromAddress,
   fromLatLng,
 } from "react-geocode";
-
-import NotificationReq from './NotificationReq'  
-
+import NotificationReq from './NotificationReq'; 
+import { auth, user } from './firebase';
   
   function App() {
     CapacitorApp.addListener('backButton', ({canGoBack}) => {
@@ -42,15 +41,11 @@ import NotificationReq from './NotificationReq'
     const lng = crd.longitude;
     localStorage.setItem('lat', lat);
     localStorage.setItem('lng', lng);
-    console.log("Your current position is:");
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
+    localStorage.setItem('user', JSON.stringify(auth.currentUser));
     setKey("AIzaSyCx0wq_NY0cy99XoWDBtiSR-VAUm3dUmWI");
   fromLatLng(lat, lng)
   .then(({ results }) => {
     localStorage.setItem('sender_address', results[0].formatted_address);
-    console.log(results[0].formatted_address);
   })
   .catch(console.error);
     fromLatLng(lat, lng)
