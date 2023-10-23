@@ -2,11 +2,14 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-    "components/**/*.{vue,js,ts,jsx,tsx}"
+    "./src/**/*.{js,jsx}",
+    "components/**/*.{js,jsx}"
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'press-start': ["urbanist"],
+    },
   },
   plugins: [],
 }

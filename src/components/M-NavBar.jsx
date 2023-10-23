@@ -9,15 +9,15 @@ export default function Mnav() {
   const profilePic = localStorage.getItem('profilePic');
   
   return (
-    <div className="  bg-white dark:bg-zinc-800   justify-between items-center flex fixed top-0 z-50 w-full  ">
+    <div className="p-2 dark:bg-opacity-10 bg-opacity-10 backdrop-blur-md  text-emerald-400 bg-white dark:bg-zinc-900   justify-between items-center flex fixed top-0 z-50 w-full  ">
       <div className="justify-start items-center gap-4 flex p-2">
         <img
           className="w-[49px] h-[49px] rounded-[56px] border border-white border-opacity-30"
           src={profilePic ? profilePic : avatar}
         />
         <div className="">
-          <span className="font-semibold text-md tracking-wider">{name}</span>
-          <p className="text-zinc-400 text-xs font-normal dark:text-zinc-300   ">
+          <span className="font-bold text-lg">{name}</span>
+          <p className="text-zinc-400 text-xs font-light dark:text-zinc-300   ">
             {email}
           </p>
         </div>

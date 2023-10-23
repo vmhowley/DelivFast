@@ -39,7 +39,7 @@ const cardFilled = () => {
 return (
   <>
   <div className=" grid justify-center ">
-      <div className="w-[21rem] h-[11rem] bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-xl mb-5 mt-7 ">
+      <div className="w-[23rem] h-[12rem] bg-gradient-to-r to-emerald-400 from-slate-800 rounded-3xl text-white shadow-xl mb-3 mt-5 ">
         <div className="flex flex-col relative">
         <span className="relative left-6 top-6 font-semibold tracking-wider">{name}</span>
         <span className="relative left-6 top-6 font-semibold tracking-widest">•••• •••• •••• {7895}</span>

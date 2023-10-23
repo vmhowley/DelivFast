@@ -3,12 +3,13 @@ import {  TruckIcon } from '@heroicons/react/24/solid';
 import { db } from "../firebase";
 import { ref, onValue } from "firebase/database";
 import TimeAgo from 'timeago-react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 export default function TransactionHist() {
   const [orders, setOrder] = useState([]);
   const [Keys, setKeys] = useState([]);
+  const location = useLocation();
   
   useEffect(() => {
     const uid = localStorage.getItem('uid')
@@ -48,13 +49,13 @@ export default function TransactionHist() {
         <div className="flex justify-between w-96 items-center mb-4 text-emerald-400 ">
           <span className="font-bold text-xl">Transaction History</span>
           
-          {window.location.pathname == '/' ? 
+          {location.pathname == '/' ? 
             <Link to='/transactions' className="cursor-pointer"> See All  </Link> 
             
             : ''}
           
         </div>
-        {window.location.pathname == '/transactions' ? orders.slice(0).reverse().map((order, index) => (
+        {location.pathname == '/transactions' ? orders.slice(0).reverse().map((order, index) => (
           
           <div
           key={index}
@@ -64,39 +65,40 @@ export default function TransactionHist() {
               <TruckIcon  className="h-6 w-6 text-emerald-400" />
             </div>
             <div className="flex flex-col gap-2 text-center w-52 ">
-              <span className="tracking-wider">
-                {order.title}
+              <span className="tracking-wider text-sm">
+                {order[1].title}
               </span>
-              <p className="text-xs  text-zinc-500 dark:text-zinc-300 ">
-                {order.description}
+              <p className="text-xs font-light  text-zinc-500 dark:text-zinc-300 ">
+                {order[1].description}
               </p>
-              <p className="text-xs text-zinc-500 dark:text-zinc-300 ">
-                {order.receiver_address}
-              </p>
+
+              <p className="text-xs font-light text-zinc-500 dark:text-zinc-300">
+                TRACK ID:  {order[0]}
+                </p>
             </div> 
-            <a className="text-emerald-400 text-xs "><TimeAgo  locale='en' datetime={order.date + ' ' + order.time}/> </a>
+            <a className="text-emerald-400 text-xs"><TimeAgo  locale='en' datetime={order[1].date + ' ' + order[1].time}/> </a>
           </div>
         )) : orders.slice(0).reverse().slice(0, 3).map((order, index) => (
           <div
           key={index}
-          className=" flex flex-row mb-2 items-center justify-around  "
+          className=" flex flex-row mb-2 items-center justify-around"
           >
             <div className="bg-emerald-400 w-[50px] h-[50px] rounded-full flex justify-center items-center bg-opacity-10 ">
               <TruckIcon  className="h-6 w-6 text-emerald-400" />
             </div>
             <div className="flex flex-col gap-2 text-center w-52 ">
-              <span className="tracking-wider">
+              <span className="tracking-wider text-sm">
                 {order[1].title}
               </span>
-              <p className="text-xs  text-zinc-500 dark:text-zinc-300 ">
+              <p className="text-xs font-light  text-zinc-500 dark:text-zinc-300 ">
                 {order[1].description}
               </p>
 
-              <p className="text-xs text-zinc-500 dark:text-zinc-300">
+              <p className="text-xs font-light text-zinc-500 dark:text-zinc-300">
                 TRACK ID:  {order[0]}
                 </p>
             </div> 
-            <a className="text-emerald-400 text-xs "><TimeAgo  locale='en' datetime={order[1].date + ' ' + order[1].time}/> </a>
+            <a className="text-emerald-400 text-xs"><TimeAgo  locale='en' datetime={order[1].date + ' ' + order[1].time}/> </a>
           </div>
         )) }
       </div>

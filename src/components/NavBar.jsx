@@ -9,14 +9,10 @@ import { HomeIcon,
 
 
 export default function NavBar() {
-  let navigation = [
-    { name: "Home", link: "/" },
-    { name: "Envio", link: "/envio" },
-    { name: "Contacto", link: "/contacto" },
-  ];
+ 
 
   return (
-<div className="fixed flex  justify-around text-center content-center bottom-0  w-full text-emerald-400  font-semibold bg-white dark:bg-zinc-900   backdrop-blur-md text-xs ">
+<div className="p-2 dark:bg-opacity-10 bg-opacity-10  fixed flex  justify-around text-center content-center bottom-0  w-full text-emerald-400  font-semibold bg-white dark:bg-zinc-900   backdrop-blur-md text-xs ">
         <Link className="flex flex-col content-center items-center justify-between" to="/">
             <HomeIcon className="h-6" />
             Home

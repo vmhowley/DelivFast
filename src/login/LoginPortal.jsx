@@ -33,7 +33,8 @@ function LoginPortal({step, setStep}) {
      localStorage.setItem('email', email);
      localStorage.setItem('profilePic', profilePic);
      localStorage.setItem('uid', uid);
-     window.location.reload();  };
+     window.location.reload();  
+    };
   const navigate = useNavigate();
 
   const handleForm = (e) => {

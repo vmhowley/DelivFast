@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body{
     margin: 0 ;
     padding: 0;
-    background-color: #ffffff;
-    font-family: 'Urbanist', sans-serif;
-    text-align: justify;  
+    background-color: #ffffff;   
 }
 
+html {
+    font-family: 'Urbanist', sans-serif;}
