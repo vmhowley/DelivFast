@@ -15,7 +15,7 @@ export default function Payment({orderData, setOrderData}) {
           className=""
           type="checkbox"
           name="vehicle1"
-          value="Paypal"
+          value="Wallet"
           onChange={(e) =>
             setOrderData({ ...orderData, payment_type: e.target.value })
           }
