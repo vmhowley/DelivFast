@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getAuth, onAuthStateChanged  } from "firebase/auth";
-import { getMessaging, getToken  } from "firebase/messaging";
+import { getMessaging, getToken, onMessage  } from "firebase/messaging";
 
 
 import React, { useEffect } from 'react';
@@ -26,8 +26,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const user = auth.currentUser;
-export const messaging = getMessaging(app);
-export const currentToken = getToken(messaging, {vapid: 'BBgVBD8skrtlHgtBIzlWD4j6D1Ey8fPrr9s6RdiVPE1bLgr2ERBaqiie-h0DoYXEJtN1l8zWxDjCJ8FRGtFewMM'});
 export const db = getDatabase(app);
+const messaging = getMessaging();
+ getToken(messaging, {vapid: "BAVIg8Am4rMjrr7VIFsYQ5lxygAcTi20hGwkn-XMnoTt6bpVXzn-FQbsnEYFjXUk-XhAuaISqUF__T_FILeQtK0"});
+ onMessage(messaging, (payload) => {
+  console.log('Message received. ', payload);
+})
 
-//sign with google popup
+ //sign with google popup

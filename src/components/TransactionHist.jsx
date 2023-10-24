@@ -78,7 +78,7 @@ export default function TransactionHist() {
             </div> 
             <a className="text-emerald-400 text-xs"><TimeAgo  locale='en' datetime={order[1].date + ' ' + order[1].time}/> </a>
           </div>
-        )) : orders.slice(0).reverse().slice(0, 3).map((order, index) => (
+        )) : orders.slice(0).reverse().slice(0, 4).map((order, index) => (
           <div
           key={index}
           className=" flex flex-row mb-2 items-center justify-around"
