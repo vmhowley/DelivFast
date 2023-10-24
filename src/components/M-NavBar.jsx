@@ -17,7 +17,7 @@ export default function Mnav() {
         />
         <div className="">
           <span className="font-bold text-lg">{name}</span>
-          <p className="text-zinc-400 text-xs font-light dark:text-zinc-300   ">
+          <p className="text-zinc-400 text-xs font-light dark:text-zinc-300    ">
             {email}
           </p>
         </div>

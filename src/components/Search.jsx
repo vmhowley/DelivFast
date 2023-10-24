@@ -9,7 +9,7 @@ export default function Search() {
   className="flex  justify-start items-center w-96 h-14 rounded-xl bg-slate-100 pl-14 focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-neutral-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-zinc-300 tracking-wider dark:focus:ring-blue-500 dark:focus:border-blue-500" 
   >
   Enter a track ID Number
-  <MagnifyingGlassIcon className='absolute left-3  w-8 text-white'  />  
+  <MagnifyingGlassIcon className='absolute left-3  w-8'  />  
   </button>
   </div>
   )
