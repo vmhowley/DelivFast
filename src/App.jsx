@@ -1,24 +1,19 @@
 import { BrowserRouter, Routes, Route  } from 'react-router-dom'
 import './App.css'
 import Home from './routes/Home'
-import OrdersList from './routes/OrdersList'
 import Transactions from './routes/Transactions'
 import MakeOrder from './routes/MakeOrder'
-import NavBar from './components/NavBar'
 import NotFound from './routes/NotFound'
-import Login from './routes/Login'
 import LoginPortal from './login/LoginPortal'
 import LoginWithPass from './login/LoginWithPassword'
 import Profile from './routes/Profile'
-import { App as CapacitorApp } from '@capacitor/app';
-import { Geolocation } from '@capacitor/geolocation';
+import { App as CapacitorApp } from '@capacitor/app'
 import {
   setKey,
   fromAddress,
   fromLatLng,
-} from "react-geocode";
-import NotificationReq from './NotificationReq'; 
-import { auth, user } from './firebase';
+} from "react-geocode"
+import { auth } from './firebase'
   
   function App() {
     CapacitorApp.addListener('backButton', ({canGoBack}) => {

@@ -35,6 +35,7 @@ function LoginPortal({step, setStep}) {
      localStorage.setItem('uid', uid);
      window.location.reload();  
     };
+    
   const navigate = useNavigate();
 
   const handleForm = (e) => {

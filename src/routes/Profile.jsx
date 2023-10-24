@@ -2,8 +2,14 @@ import React, { useState } from 'react'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 import { set, ref, push } from "firebase/database";
 import { db } from "../firebase";
+import { FirebaseAuthentication } from '@robingenz/capacitor-firebase-authentication';
+import { Navigate } from 'react-router-dom';
 export default function Profile() {
-    
+  const signOut = async () => {
+    await FirebaseAuthentication.signOut();
+    localStorage.clear();
+    window.location.reload();  
+  };
     const [profileData, setProfileData] = useState({
       name: localStorage.getItem('name'),
       pic:  localStorage.getItem('profilePic')
@@ -17,7 +23,12 @@ export default function Profile() {
         });
       }
       writeProfile(profileData);
+      const isLogged = localStorage.getItem("authenticated");
 
+      if (!isLogged) {
+        return <Navigate replace to="/login" />;
+        // Redirect
+      } else {
   return (
     <div className='profile '>
 <div
@@ -49,7 +60,9 @@ export default function Profile() {
             onChange={(e) => setProfileData({...profileData, name: e.target.value})}
           />
         </div>
+        <button  onClick={signOut}>Sign Out</button>
       </div>
     </div>
   )
+}
 }
