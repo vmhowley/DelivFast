@@ -73,5 +73,5 @@ import { auth, user } from './firebase';
   )
    } 
 
-  
+   
   export default App
