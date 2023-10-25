@@ -3,6 +3,7 @@ import React from 'react'
 import NavBar from '../components/NavBar'
 import { BellIcon } from '@heroicons/react/24/solid'
 import avatar from '../images/avatar.png'
+import { Link } from 'react-router-dom'
 export default function Mnav() {
   const name = localStorage.getItem('name');
   const email = localStorage.getItem('email');
@@ -23,7 +24,9 @@ export default function Mnav() {
         </div>
       </div>
       <div className="flex">
+        <Link to='/notifications'>
         <BellIcon className="h-6 w-6 relative right-3 text-gray-600" />
+        </Link>
       </div>
     </div>
   );

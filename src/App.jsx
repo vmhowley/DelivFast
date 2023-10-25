@@ -14,6 +14,7 @@ import {
   fromLatLng,
 } from "react-geocode"
 import { auth } from './firebase'
+import Notifications from './components/Notifications'
   
   function App() {
     CapacitorApp.addListener('backButton', ({canGoBack}) => {
@@ -61,6 +62,7 @@ import { auth } from './firebase'
       <Route path="/login" element={<LoginPortal />} />
       <Route path="/loginwithPass" element={<LoginWithPass />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/notifications" element={<Notifications />} />
       <Route path="/create-order" element={<MakeOrder />} />
       <Route path="/transactions" element={<Transactions />} />
       <Route path="*" element={<NotFound />} />
