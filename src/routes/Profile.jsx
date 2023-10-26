@@ -5,18 +5,9 @@ import { Navigate } from 'react-router-dom';
 
 
  function Profile() { 
-  const signOut = async () => {
-    await FirebaseAuthentication.signOut();
-    localStorage.clear();
-    window.location.reload();  
-  };
+  
  
- 
-  const userData = JSON.parse(localStorage.getItem('user'));
-  const [profileData, setProfileData] = useState({
-  name: localStorage.getItem('name'),
-  pic:  localStorage.getItem('profilePic'),
-})
+  const [profileData, setProfileData] = useState(JSON.parse(localStorage.getItem('userdata')))
 
 const isLogged = localStorage.getItem("authenticated");
 
@@ -35,7 +26,7 @@ const isLogged = localStorage.getItem("authenticated");
         <span className="font-bold ">Back</span>
       </div>
       <div className='flex justify-center'>
-        <img className='rounded-full w-32' src={profileData.pic} alt="Profile Picture" />
+        <img className='rounded-full w-32' src={profileData.photoUrl} alt="Profile Picture" />
       </div>
       <div className=' m-4'>
       <div className="mb-4">
@@ -52,7 +43,7 @@ const isLogged = localStorage.getItem("authenticated");
             name='name'
             type="text"
             placeholder="Full Name"
-            value={profileData.name}
+            value={profileData.displayName}
             onChange={(e) => setProfileData({...profileData, name: e.target.value})}
           />
         </div>
@@ -92,10 +83,20 @@ const isLogged = localStorage.getItem("authenticated");
             onChange={(e) => setProfileData({...profileData, name: e.target.value})}
           />
         </div>
+        <div className='grid gap-2  justify-center'>
+        <button className='btn' onClick={''}>Guardar</button>
         <button className='btn' onClick={signOut}>Sign Out</button>
+        </div>
+
       </div>
     </div>
   )
 }
 }
+const signOut = async () => {
+  await FirebaseAuthentication.signOut();
+  localStorage.clear();
+  window.location.reload();  
+};
+
 export default Profile;
