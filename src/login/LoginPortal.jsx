@@ -29,6 +29,7 @@ function LoginPortal({step, setStep}) {
     const profilePic = result.user.photoUrl;
     const uid = result.user.uid;
      localStorage.setItem('authenticated', true);
+     localStorage.setItem('userData', result.user);
      localStorage.setItem('name', name);
      localStorage.setItem('email', email);
      localStorage.setItem('profilePic', profilePic);
