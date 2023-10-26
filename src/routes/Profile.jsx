@@ -5,10 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 
  function Profile() { 
-  
- 
   const [profileData, setProfileData] = useState(JSON.parse(localStorage.getItem('userdata')))
-
 const isLogged = localStorage.getItem("authenticated");
 
       if (!isLogged) {

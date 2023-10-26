@@ -17,6 +17,7 @@ import { FirebaseAuthentication } from '@robingenz/capacitor-firebase-authentica
 
 
 function LoginPortal({step, setStep}) {
+  
   const signInWithGoogle = async () => {
     // 1. Create credentials on the native layer
     const result = await FirebaseAuthentication.signInWithGoogle();
@@ -34,6 +35,7 @@ function LoginPortal({step, setStep}) {
      localStorage.setItem('email', email);
      localStorage.setItem('profilePic', profilePic);
      localStorage.setItem('uid', uid);
+     
      window.location.reload();  
     };
     

@@ -26,7 +26,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const db = getDatabase(app);
-const messaging = getMessaging();
+const messaging = getMessaging(app);
  getToken(messaging, {vapid: "BAVIg8Am4rMjrr7VIFsYQ5lxygAcTi20hGwkn-XMnoTt6bpVXzn-FQbsnEYFjXUk-XhAuaISqUF__T_FILeQtK0"});
  onMessage(messaging, (payload) => {
 })
