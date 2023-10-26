@@ -4,7 +4,7 @@ import facebookIcon from '../images/Facebook_icon.png'
 import googleIcon from '../images/google_icon.png'
 import appleIcon from '../images/apple_icon.png'
 import Logo from '../images/delivery.png/'
-import { auth } from '../firebase'
+import { auth, db } from '../firebase'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 import {  GoogleAuthProvider,
   OAuthProvider,
@@ -13,11 +13,12 @@ import {  GoogleAuthProvider,
 import { Navigate } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { FirebaseAuthentication } from '@robingenz/capacitor-firebase-authentication';
-
+import { getDatabase, ref, set } from "firebase/database";
 
 
 function LoginPortal({step, setStep}) {
-  
+
+
   const signInWithGoogle = async () => {
     // 1. Create credentials on the native layer
     const result = await FirebaseAuthentication.signInWithGoogle();
@@ -35,7 +36,6 @@ function LoginPortal({step, setStep}) {
      localStorage.setItem('email', email);
      localStorage.setItem('profilePic', profilePic);
      localStorage.setItem('uid', uid);
-     
      window.location.reload();  
     };
     

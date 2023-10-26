@@ -59,7 +59,7 @@ function  MultiStepForm () {
   
   const writeOrder = (orderData) => {
     const user = JSON.parse(localStorage.getItem('user'))
-    const orderListRef = ref(db, 'users/' + user.uid +'/orders')
+    const orderListRef = ref(db, 'users/' + user.uid + '/orders')
     push(orderListRef, orderData);
    }
   
