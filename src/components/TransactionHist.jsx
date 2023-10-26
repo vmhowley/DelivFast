@@ -9,10 +9,11 @@ import { Link, useLocation } from "react-router-dom";
 export default function TransactionHist() {
   const [orders, setOrder] = useState([]);
   const [Keys, setKeys] = useState([]);
-  const location = useLocation();
   
+  const user = JSON.parse(localStorage.getItem("user"));
+  const location = useLocation();
   useEffect(() => {
-    const uid = localStorage.getItem('uid')
+    const uid = localStorage.getItem("uid");
     const query = ref(db, "users/" + uid + '/orders' );
     return onValue(query, (snapshot) => {
       const data = snapshot.val();

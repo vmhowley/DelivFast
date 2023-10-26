@@ -20,10 +20,6 @@ function LoginPortal({step, setStep}) {
   const signInWithGoogle = async () => {
     // 1. Create credentials on the native layer
     const result = await FirebaseAuthentication.signInWithGoogle();
-    // 2. Sign in on the web layer using the id token
-    
-    const credential = GoogleAuthProvider.credential(result.credential?.idToken);
-    await signInWithCredential(auth, credential);
     const name = result.user.displayName;
     const email = result.user.email;
     const profilePic = result.user.photoUrl;
@@ -34,7 +30,12 @@ function LoginPortal({step, setStep}) {
      localStorage.setItem('profilePic', profilePic);
      localStorage.setItem('uid', uid);
      window.location.reload();  
-    };
+    // 2. Sign in on the web layer using the id token
+    const credential = GoogleAuthProvider.credential(result.credential?.idToken);
+
+    await signInWithCredential(auth, credential);
+
+  };
     
   const navigate = useNavigate();
 

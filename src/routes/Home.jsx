@@ -32,7 +32,6 @@ const  Home = () => {
       <Search />
       <Hero />
       <TransactionHist />
-      <NavBar />
 
     </div>
   );

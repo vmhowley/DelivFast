@@ -29,7 +29,6 @@ export const db = getDatabase(app);
 const messaging = getMessaging();
  getToken(messaging, {vapid: "BAVIg8Am4rMjrr7VIFsYQ5lxygAcTi20hGwkn-XMnoTt6bpVXzn-FQbsnEYFjXUk-XhAuaISqUF__T_FILeQtK0"});
  onMessage(messaging, (payload) => {
-  console.log('Message received. ', payload);
 })
 
  //sign with google popup
