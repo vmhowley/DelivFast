@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 import { FirebaseAuthentication } from '@robingenz/capacitor-firebase-authentication';
 import { Navigate } from 'react-router-dom';
-export default function Profile() {
- 
+
+
+ function Profile() { 
   const signOut = async () => {
     await FirebaseAuthentication.signOut();
     localStorage.clear();
@@ -15,7 +16,6 @@ export default function Profile() {
   const [profileData, setProfileData] = useState({
   name: localStorage.getItem('name'),
   pic:  localStorage.getItem('profilePic'),
-  user: userData
 })
 
 const isLogged = localStorage.getItem("authenticated");
@@ -35,7 +35,7 @@ const isLogged = localStorage.getItem("authenticated");
         <span className="font-bold ">Back</span>
       </div>
       <div className='flex justify-center'>
-        <img className='rounded-full w-32' src={profileData.user.photoURL} alt="Profile Picture" />
+        <img className='rounded-full w-32' src={profileData.pic} alt="Profile Picture" />
       </div>
       <div className=' m-4'>
       <div className="mb-4">
@@ -52,7 +52,7 @@ const isLogged = localStorage.getItem("authenticated");
             name='name'
             type="text"
             placeholder="Full Name"
-            value={profileData.user.displayName}
+            value={profileData.name}
             onChange={(e) => setProfileData({...profileData, name: e.target.value})}
           />
         </div>
@@ -70,7 +70,7 @@ const isLogged = localStorage.getItem("authenticated");
             name='email'
             type="email"
             placeholder="Email"
-            value={profileData.user.email}
+            value={profileData.email}
             onChange={(e) => setProfileData({...profileData, email: e.target.value})}
           />
         </div>
@@ -88,7 +88,7 @@ const isLogged = localStorage.getItem("authenticated");
             name='phone'
             type="tel"
             placeholder="Full Name"
-            value={userData.phone}
+            value={profileData.phone}
             onChange={(e) => setProfileData({...profileData, name: e.target.value})}
           />
         </div>
@@ -98,3 +98,4 @@ const isLogged = localStorage.getItem("authenticated");
   )
 }
 }
+export default Profile;
