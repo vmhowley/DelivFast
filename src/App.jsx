@@ -8,6 +8,7 @@ import NotFound from './routes/NotFound'
 import LoginPortal from './login/LoginPortal'
 import LoginWithPass from './login/LoginWithPassword'
 import Profile from './routes/Profile'
+import CheckRates from './routes/CheckRates'
 import { App as CapacitorApp } from '@capacitor/app'
 import {
   setKey,
@@ -68,6 +69,7 @@ import Notifications from './components/Notifications'
       <Route path="/notifications" element={<Notifications />} />
       <Route path="/create-order" element={<MakeOrder />} />
       <Route path="/transactions" element={<Transactions />} />
+      <Route path="/check_rate" element={<CheckRates />} />
       <Route path="*" element={<NotFound />} />
       
     </Routes>

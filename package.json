@@ -26,11 +26,15 @@
     "@capacitor/push-notifications": "^5.1.0",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@heroicons/react": "^2.0.18",
+    "@reach/combobox": "^0.18.0",
+    "@react-google-maps/api": "^2.19.2",
+    "@react-google-maps/marker-clusterer": "^2.19.2",
     "@robingenz/capacitor-firebase-authentication": "^0.4.3",
     "bisu-react-search-modal": "^1.0.8",
     "cordova-plugin-file": "^8.0.0",
     "firebase": "^10.5.0",
     "google-map-react": "^2.2.1",
+    "latest": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-form-stepper": "^2.0.3",
@@ -47,6 +51,7 @@
     "reactstrap": "^9.2.0",
     "recompose": "^0.30.0",
     "timeago-react": "^3.0.6",
+    "use-places-autocomplete": "^4.0.1",
     "yarn": "^1.22.19"
   },
   "devDependencies": {

@@ -1,58 +1,54 @@
-import React from "react"
-import { compose, withProps } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import React from 'react'
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
-
-
-const lat = parseFloat(localStorage.getItem('lat'));
-const lng = parseFloat(localStorage.getItem('lng'));
-const MyMapComponent = compose(
+const containerStyle = {
+    width: '400px',
+    height: '400px'
+  };
   
-  withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCx0wq_NY0cy99XoWDBtiSR-VAUm3dUmWI&v=3.exp&libraries=geometry,drawing,places",
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
-    mapElement: <div style={{ height: `100%` }} />,
-  }),
-  withScriptjs,
-  withGoogleMap
-)((props) =>
-  <GoogleMap 
-    defaultZoom={13}
-    defaultCenter={{ lat: lat, lng: lng }}
-  >
-    {props.isMarkerShown && <Marker position={{ lat: lat, lng: lng }} />}
-  </GoogleMap>
-)
+  const center = {
+    lat: parseFloat(localStorage.getItem('lat')),
+    lng: parseFloat(localStorage.getItem('lng'))
+    };
+  
+  function CheckRates() {
+    const { isLoaded } = useJsApiLoader({
+      id: 'google-map-script',
+      googleMapsApiKey: "AIzaSyCx0wq_NY0cy99XoWDBtiSR-VAUm3dUmWI"
+    })
+  
+    const [map, setMap] = React.useState(null)
+  
+    const onLoad = React.useCallback(function callback(map) {
+      // This is just an example of getting and using the map instance!!! don't just blindly copy!
+      const bounds = new window.google.maps.LatLngBounds(center);
+      map.fitBounds(bounds);
+  
+      setMap(map)
+    }, [])
+  
+    const onUnmount = React.useCallback(function callback(map) {
+      setMap(null)
+    }, [])
+  
+    return isLoaded ? (
+        <GoogleMap
 
-class MyFancyComponent extends React.PureComponent {
-  state = {
-    isMarkerShown: false,
-  }
+        mapContainerStyle={containerStyle}
+          center={center}
+          zoom={8}
+          onLoad={onLoad}
+          onUnmount={onUnmount}
+        >
 
-  componentDidMount() {
-    this.delayedShowMarker()
-  }
-
-  delayedShowMarker = () => {
-    setTimeout(() => {
-      this.setState({ isMarkerShown: true })
-    }, 3000)
-  }
-
-  handleMarkerClick = () => {
-    this.setState({ isMarkerShown: false })
-    this.delayedShowMarker()
-  }
-
-  render() {
-    return (
-      <MyMapComponent
-        isMarkerShown
-        onMarkerClick={this.handleMarkerClick}
+<Marker
+        key={''}
+        position={ center }
       />
-    )
+          { /* Child components, such as markers, info windows, etc. */ }
+          <></>
+        </GoogleMap>
+    ) : <></>
   }
-}
 
-export default MyFancyComponent;
+export default React.memo(CheckRates)

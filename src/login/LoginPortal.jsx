@@ -6,10 +6,7 @@ import appleIcon from '../images/apple_icon.png'
 import Logo from '../images/delivery.png/'
 import { auth, db } from '../firebase'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
-import {  GoogleAuthProvider,
-  OAuthProvider,
-  PhoneAuthProvider,
-  signInWithCredential,} from "firebase/auth";  
+import {  GoogleAuthProvider,  OAuthProvider,  PhoneAuthProvider,  signInWithCredential } from "firebase/auth";  
 import { Navigate } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { FirebaseAuthentication } from '@robingenz/capacitor-firebase-authentication';
@@ -17,7 +14,14 @@ import { getDatabase, ref, set } from "firebase/database";
 
 
 function LoginPortal({step, setStep}) {
-
+  
+  function writeUserData(userId, name, email, imageUrl) {
+    set(ref(db, 'users/' + userId ), {
+      username: name,
+      email: email,
+      profile_picture : imageUrl
+    });
+  }
 
   const signInWithGoogle = async () => {
     // 1. Create credentials on the native layer
@@ -36,6 +40,7 @@ function LoginPortal({step, setStep}) {
      localStorage.setItem('email', email);
      localStorage.setItem('profilePic', profilePic);
      localStorage.setItem('uid', uid);
+     writeUserData(uid, name, email, profilePic)
      window.location.reload();  
     };
     

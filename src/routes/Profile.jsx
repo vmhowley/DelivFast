@@ -81,7 +81,7 @@ const isLogged = localStorage.getItem("authenticated");
           />
         </div>
         <div className='grid gap-2  justify-center'>
-        <button className='btn' onClick={''}>Guardar</button>
+        <button className='btn' >Guardar</button>
         <button className='btn' onClick={signOut}>Sign Out</button>
         </div>
 
