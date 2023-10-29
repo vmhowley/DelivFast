@@ -1,17 +1,19 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
 
 const containerStyle = {
-    width: '400px',
-    height: '400px'
-  };
-  
-  const center = {
-    lat: parseFloat(localStorage.getItem('lat')),
-    lng: parseFloat(localStorage.getItem('lng'))
-    };
-  
-  function CheckRates() {
+  width:'auto',
+  height:'400px',
+  margin:'auto'
+};
+
+const center = {
+  lat: parseFloat(localStorage.getItem('lat')),
+  lng: parseFloat(localStorage.getItem('lng'))
+};
+function Map() {
+
     const { isLoaded } = useJsApiLoader({
       id: 'google-map-script',
       googleMapsApiKey: "AIzaSyCx0wq_NY0cy99XoWDBtiSR-VAUm3dUmWI"
@@ -20,7 +22,6 @@ const containerStyle = {
     const [map, setMap] = React.useState(null)
   
     const onLoad = React.useCallback(function callback(map) {
-      // This is just an example of getting and using the map instance!!! don't just blindly copy!
       const bounds = new window.google.maps.LatLngBounds(center);
       map.fitBounds(bounds);
   
@@ -30,25 +31,39 @@ const containerStyle = {
     const onUnmount = React.useCallback(function callback(map) {
       setMap(null)
     }, [])
-  
+    const [markers, setMarkers] = React.useState([]);
+
+    const onMapClick = (e) => {
+        setMarkers((current) => [
+          ...current,
+          {
+            lat: e.latLng.lat(),
+            lng: e.latLng.lng()
+          }
+        ]);
+      };
     return isLoaded ? (
-        <GoogleMap
-
+      <GoogleMap
         mapContainerStyle={containerStyle}
-          center={center}
-          zoom={8}
-          onLoad={onLoad}
-          onUnmount={onUnmount}
-        >
-
-<Marker
-        key={''}
-        position={ center }
-      />
-          { /* Child components, such as markers, info windows, etc. */ }
-          <></>
-        </GoogleMap>
-    ) : <></>
+        zoom={13}
+        center={center}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        onClick={onMapClick}
+       >
+        {markers.map((marker, index) => (
+        <Marker 
+        key={index}
+          position={{ 
+            lat: marker.lat,
+            lng: marker.lng 
+          }} />
+    ))}
+      </GoogleMap>
+    ) : (
+      <></>
+    );
   }
+export default Map; 
 
-export default React.memo(CheckRates)
+

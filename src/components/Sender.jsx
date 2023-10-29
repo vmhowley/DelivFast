@@ -1,8 +1,14 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { useState } from 'react';
 import Map from './map';
 
 function SenderInfo( {orderData, setOrderData}) {
+  const [mapSelection, setMapSelection] = useState({
+    lati : localStorage.getItem('lat'),
+    long : localStorage.getItem('lng'),
+     
+  })
  
     return(
       

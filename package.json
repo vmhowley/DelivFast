@@ -30,6 +30,7 @@
     "@react-google-maps/api": "^2.19.2",
     "@react-google-maps/marker-clusterer": "^2.19.2",
     "@robingenz/capacitor-firebase-authentication": "^0.4.3",
+    "@ubilabs/google-maps-react-hooks": "^2.0.2",
     "bisu-react-search-modal": "^1.0.8",
     "cordova-plugin-file": "^8.0.0",
     "firebase": "^10.5.0",
