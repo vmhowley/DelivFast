@@ -36,7 +36,7 @@ export default function TransactionHist() {
     if (orders == 0) {
       return  <>
       <div className="flex justify-center flex-wrap mt-4">
-      <div className="flex justify-between  w-96 items-center mb-4 text-emerald-400 ">
+      <div className="flex justify-between  w-[21rem] items-center mb-4 text-emerald-400 ">
       <span className="font-bold text-xl">Transaction History</span>
       <a className="font-bold" href="/transactions">See All </a>
     </div>
@@ -47,7 +47,7 @@ export default function TransactionHist() {
       return (
         <>
       <div className="text-black font-semibold dark:text-white  divide-y divide-slate-400/30 grid w-max m-auto mt-4">
-        <div className="flex justify-between w-96 items-center mb-4 text-emerald-400 ">
+        <div className="flex justify-between w-[21rem] items-center mb-4 text-emerald-400 ">
           <span className="font-bold text-xl">Transaction History</span>
           
           {location.pathname == '/' ? 

@@ -26,8 +26,7 @@ const  Home = () => {
     // Redirect
   } else {
   return (
-    <div className=" mt-[70px] mb-20">
-      <Mnav />
+    <div className=" mt-4 mb-20">
       <Ccard />
       <Search />
       <Hero />
