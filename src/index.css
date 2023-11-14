@@ -3,11 +3,9 @@
 @tailwind utilities;
 
 
-body{
-    margin: 0 ;
-    padding: 0;
-    background-color: #ffffff;   
+body,html{
+    max-width: 500px;
+    margin: 0px auto ;
+    font-family: 'Urbanist', sans-serif;   
 }
 
-html {
-    font-family: 'Urbanist', sans-serif;}

@@ -46,8 +46,8 @@ export default function TransactionHist() {
     }else{
       return (
         <>
-      <div className="text-black font-semibold dark:text-white  divide-y divide-slate-400/30 grid w-max m-auto mt-4">
-        <div className="flex justify-between w-[21rem] items-center mb-4 text-emerald-400 ">
+      <div className="text-black font-semibold dark:text-white  divide-y divide-slate-400/30 grid w-full m-auto mt-4">
+        <div className="flex justify-between  items-center mb-4 text-emerald-400 ">
           <span className="font-bold text-xl">Transaction History</span>
           
           {location.pathname == '/' ? 
